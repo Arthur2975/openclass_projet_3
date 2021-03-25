@@ -1,4 +1,4 @@
-from tinydb import TinyDB
+from tinydb import TinyDB, Query
 
 class Match:
     def __init__(self, index, player_1, player_2, score_1, score_2):
@@ -15,6 +15,8 @@ class Match:
 
 
     def get_score(self, ):
+
+    def generate_pair():
 
 
     #input --> import 2 joueurs du Json
