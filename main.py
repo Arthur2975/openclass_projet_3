@@ -6,7 +6,7 @@ from classes import tournoi
 
 def new_tournament():
     #new tournament
-    new_tournament = tournoi.Tournoi(input(' name'), input(' place'), input('date'))
+    new_tournament = tournoi.Tournoi(input(' New tournament: \n Tournament_s name'), input(' place'), input('date'))
     tournoi.Tournoi.save(new_tournament)
 
 
@@ -43,13 +43,36 @@ def generate_matchs():
             else:
                 lower_group.append(player_name)
 
-    first_match = lower_group[0] +' against ' + upper_group[0]
-    second_match = lower_group[1] +' against ' + upper_group[1]
-    third_match = lower_group[2] +' against ' + upper_group[2]
-    fourth_match = lower_group[3] +' against ' + upper_group[3]
+    print(lower_group[0])
+    first_match = [lower_group[0], upper_group[0]]
+    second_match = [lower_group[1], upper_group[1]]
+    third_match = [lower_group[2], upper_group[2]]
+    fourth_match = [lower_group[3], upper_group[3]]
 
-    print(first_match + '\n' + second_match + '\n' + third_match + '\n' + fourth_match)
+    input('first match : ' + first_match[0] + 'against' + first_match[1])
+    input('second match : ' + second_match[0] + 'against' + second_match[1])
+    input('third match : ' + third_match[0] + 'against' + third_match[1])
+    input('fourth match : ' + fourth_match[0] + 'against' + fourth_match[1])
 
+#entrer des scores
 
+def enter_scores():
+    generate_matchs()
+    #creer une liste pour chaque match
+
+# repeter generate match et enter score until the tournament's done
+
+def main():
+    new_tournament()
+    new_player()
+    i = 0
+    while i < 4:
+        input('generating match pair, press enter')
+        generate_matchs()
+        #enter score
+        i += 1
+
+if __name__ == '__main__':
+    main()
 
 
