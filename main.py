@@ -1,7 +1,10 @@
-from tinydb import TinyDB
+from tinydb import TinyDB, Query
 import json
 from classes import player 
 from classes import tournoi
+
+
+db = TinyDB('chess.json')
 
 
 def new_tournament():
@@ -68,11 +71,52 @@ def main():
     i = 0
     while i < 4:
         input('generating match pair, press enter')
-        generate_matchs()
-        #enter score
+        match_bis()
         i += 1
 
 if __name__ == '__main__':
     main()
 
+
+#essayer de generer les matchs en deserializant avec Tinyb=db et pas avec with open
+def match_bis():
+
+    db = db.all()
+
+    upper_group = []
+    lower_group = []
+
+    if len(db) != 8:
+        print('incorrect number of players')
+    else:
+        if int(self.ranking) < len(db)/2:
+            upper_group.append(self)
+        elif self.ranking > 8:
+            lower_group.append(self)
+    #first match
+    print('first_match : ' + upper_group[0] + ' against ' + lower_group[0])
+    #enter scores:
+    score_1 = input('Enter ' + upper_group[0] + 's' + ' score')
+    score_2 = input('Enter ' + lower_group[0] + 's' + ' score')
+    first_match = (upper_group[0], score_1, lower_group[0], score_2)
+    #second match
+    print('second match : ' + upper_group[1] + 'against' + lower_group[1])
+    #enter scores:
+    score_3 = input('Enter ' + upper_group[1] + 's' + ' score')
+    score_4 = input('Enter ' + lower_group[1] + 's' + ' score')
+    second_match = (upper_group[1], score_3, lower_group[1], score_4)   
+    #third match 
+    print('third_match : ' + upper_group[2] + 'against' + lower_group[2])
+    #Enter scores:
+    score_5 = input('Enter ' + upper_group[2] + 's' + ' score')
+    score_6 = input('Enter ' + lower_group[2] + 's' + ' score')
+    third_match = (upper_group[2], score_5, lower_group[2], score_6)  
+    #fourth match
+    print('fourth_match : ' + upper_group[3] + 'against' + lower_group[3])
+    #Enter scores:
+    score_7 = input('Enter ' + upper_group[3] + 's' + ' score')
+    score_8 = input('Enter ' + lower_group[3] + 's' + ' score')
+    fourth_match = (upper_group[3], score_7, lower_group[3], score_8)  
+
+    list_of_the_round = [first_match, second_match, third_match, fourth_match]
 

@@ -1,4 +1,8 @@
 from tinydb import TinyDB
+import json
+
+db = TinyDB('chess.json')
+
 
 class Player:
     '''Class defining a player and its attributes'''
@@ -13,11 +17,15 @@ class Player:
 
     def save(self):
         serialized_player = {'name': self.name, 'firstname': self.firstname, 'date_of_birth': self.date_of_birth, 'gender': self.gender, 'ranking': self.ranking}
-        db = TinyDB('chess.json')
-        global players_table
         players_table = db.table('players')
         players_table.insert(serialized_player)
-        
+
+
+    def save_json(self):
+        serialized_player = {'name': self.name, 'firstname': self.firstname, 'date_of_birth': self.date_of_birth, 'gender': self.gender, 'ranking': self.ranking}
+        with open('chess.json', 'w') as json_file:
+            js = json.dump(serialized_player, json_file)
+
 
     #geter des infos joueur
 
@@ -33,10 +41,6 @@ class Player:
         #remove player
         pass
         
-
-
-
-
 
 
 
