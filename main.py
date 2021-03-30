@@ -89,7 +89,15 @@ def match():
     upper_group = []
     lower_group = []
 
+    upper_group.append(sorted_list_player[:4])
+    lower_group.append(sorted_list_player[4:7])
 
+    for player in upper_group:
+        print(dir(player))
+        
+        
+
+    
 
     '''
     if len(all_players) != 8:

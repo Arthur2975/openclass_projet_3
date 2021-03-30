@@ -1,1 +1,67 @@
-{"tournaments": {"1": {"name": "wwc", "place": "nyc", "date": "12"}}, "players": {"1": {"name": "mengual", "firstname": "arthur", "date_of_birth": "12", "gender": "m", "ranking": "1"}, "2": {"name": "aze", "firstname": "aze", "date_of_birth": "aze", "gender": "aze", "ranking": "2"}, "3": {"name": "ddd", "firstname": "rr", "date_of_birth": "d", "gender": "d", "ranking": "3"}, "4": {"name": "ze", "firstname": "aze", "date_of_birth": "aze", "gender": "d", "ranking": "4"}, "5": {"name": "df", "firstname": "rzer", "date_of_birth": "zer", "gender": "zer", "ranking": "5"}, "6": {"name": "sdf", "firstname": "sdf", "date_of_birth": "zr", "gender": "zer", "ranking": "6"}, "7": {"name": "sdf", "firstname": "zer", "date_of_birth": "zer", "gender": "zer", "ranking": "7"}, "8": {"name": "qds", "firstname": "er", "date_of_birth": "d", "gender": "fdg", "ranking": "8"}}}
+{
+    "tournaments": {
+        "1": {
+            "name": "wwc",
+            "place": "nyc",
+            "date": "12"
+        }
+    },
+    "players": {
+        "1": {
+            "name": "mengual",
+            "firstname": "arthur",
+            "date_of_birth": "12",
+            "gender": "m",
+            "ranking": "1"
+        },
+        "2": {
+            "name": "aze",
+            "firstname": "aze",
+            "date_of_birth": "aze",
+            "gender": "aze",
+            "ranking": "2"
+        },
+        "3": {
+            "name": "ddd",
+            "firstname": "rr",
+            "date_of_birth": "d",
+            "gender": "d",
+            "ranking": "3"
+        },
+        "4": {
+            "name": "ze",
+            "firstname": "aze",
+            "date_of_birth": "aze",
+            "gender": "d",
+            "ranking": "4"
+        },
+        "5": {
+            "name": "df",
+            "firstname": "rzer",
+            "date_of_birth": "zer",
+            "gender": "zer",
+            "ranking": "5"
+        },
+        "6": {
+            "name": "sdf",
+            "firstname": "sdf",
+            "date_of_birth": "zr",
+            "gender": "zer",
+            "ranking": "6"
+        },
+        "7": {
+            "name": "sdf",
+            "firstname": "zer",
+            "date_of_birth": "zer",
+            "gender": "zer",
+            "ranking": "7"
+        },
+        "8": {
+            "name": "qds",
+            "firstname": "er",
+            "date_of_birth": "d",
+            "gender": "fdg",
+            "ranking": "8"
+        }
+    }
+}
