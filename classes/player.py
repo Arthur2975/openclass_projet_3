@@ -37,9 +37,6 @@ class Player:
         self.ranking = ranking
 
 
-    def delete(self):
-        #remove player
-        pass
         
 
 

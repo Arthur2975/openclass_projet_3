@@ -1,7 +1,7 @@
 from tinydb import TinyDB, Query
 import json
-from classes import player 
-from classes import tournoi
+from classes import player as play
+from classes import tournoi as tour
 
 
 db = TinyDB('chess.json')
@@ -9,8 +9,8 @@ db = TinyDB('chess.json')
 
 def new_tournament():
     #new tournament
-    new_tournament = tournoi.Tournoi(input(' New tournament: \n Tournament_s name'), input(' place'), input('date'))
-    tournoi.Tournoi.save(new_tournament)
+    new_tournament = tour.Tournoi(input(' New tournament: \n Tournament_s name'), input(' place'), input('date'))
+    tour.Tournoi.save(new_tournament)
 
 
 def new_player():
@@ -22,9 +22,9 @@ def new_player():
         if add_player.lower() != 'y':
             break
         else:
-            new_player = player.Player(input('name: '), input('firstname: '), input('date_of_birth: '), input('gender: '), input('ranking: '))
+            new_player = play.Player(input('name: '), input('firstname: '), input('date_of_birth: '), input('gender: '), input('ranking: '))
 
-        player.Player.save(new_player)
+        play.Player.save(new_player)
     
 
 def generate_matchs():
@@ -71,28 +71,35 @@ def main():
     i = 0
     while i < 4:
         input('generating match pair, press enter')
-        match_bis()
+        match()
         i += 1
 
-if __name__ == '__main__':
-    main()
 
+def match():
+    
+    table_player = db.table('players')
+    all_players = table_player.all()
 
-#essayer de generer les matchs en deserializant avec Tinyb=db et pas avec with open
-def match_bis():
-
-    db = db.all()
+    list_player = []
+    for player in all_players:
+        list_player.append(play.Player(player['name'], player['firstname'], player['date_of_birth'], player['gender'], player['ranking']))
+    
+    sorted_list_player = sorted(list_player, key=lambda player: player.ranking)
 
     upper_group = []
     lower_group = []
 
-    if len(db) != 8:
+
+
+    '''
+    if len(all_players) != 8:
         print('incorrect number of players')
-    else:
-        if int(self.ranking) < len(db)/2:
-            upper_group.append(self)
-        elif self.ranking > 8:
-            lower_group.append(self)
+        return None
+
+    if int(self.ranking) < len(db)/2:
+        upper_group.append(self)
+    elif self.ranking > 8:
+        lower_group.append(self)
     #first match
     print('first_match : ' + upper_group[0] + ' against ' + lower_group[0])
     #enter scores:
@@ -119,4 +126,14 @@ def match_bis():
     fourth_match = (upper_group[3], score_7, lower_group[3], score_8)  
 
     list_of_the_round = [first_match, second_match, third_match, fourth_match]
+    '''
 
+
+# if __name__ == '__main__':
+#     main()
+
+
+#d'abord trier la liste de joueurs
+#ensuite utiliser [0:3] pour prendre les prenmiers de la liste et depuis la fin pour les 4 derniers
+
+match()
