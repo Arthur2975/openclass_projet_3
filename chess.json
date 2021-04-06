@@ -1,1 +1,87 @@
-{"tournaments": {"1": {"name": "wwc", "place": "nyc", "date": "12"}}, "players": {"1": {"name": "a", "firstname": "a", "date_of_birth": "a", "gender": "a", "ranking": "2"}, "2": {"name": "Z", "firstname": "z", "date_of_birth": "z", "gender": "z", "ranking": "1"}, "3": {"name": "r", "firstname": "r", "date_of_birth": "r", "gender": "r", "ranking": "8"}, "4": {"name": "v", "firstname": "v", "date_of_birth": "v", "gender": "v", "ranking": "5"}, "5": {"name": "c", "firstname": "c", "date_of_birth": "c", "gender": "c", "ranking": "3"}, "6": {"name": "d", "firstname": "d", "date_of_birth": "d", "gender": "d", "ranking": "4"}, "7": {"name": "q", "firstname": "q", "date_of_birth": "q", "gender": "q", "ranking": "6"}, "8": {"name": "h", "firstname": "h", "date_of_birth": "h", "gender": "h", "ranking": "7"}}}
+{
+    "tournaments": {
+        "1": {
+            "name": "wwc",
+            "place": "nyc",
+            "date": "12"
+        }
+    },
+    "players": {
+        "1": {
+            "name": "Alain",
+            "firstname": "A",
+            "date_of_birth": "A",
+            "gender": "A",
+            "ranking": "1"
+        },
+        "2": {
+            "name": "beber",
+            "firstname": "A",
+            "date_of_birth": "A",
+            "gender": "A",
+            "ranking": "2"
+        },
+        "3": {
+            "name": "teo",
+            "firstname": "A",
+            "date_of_birth": "A",
+            "gender": "A",
+            "ranking": "3"
+        },
+        "4": {
+            "name": "clea",
+            "firstname": "A",
+            "date_of_birth": "A",
+            "gender": "A",
+            "ranking": "4"
+        },
+        "5": {
+            "name": "rachid",
+            "firstname": "A",
+            "date_of_birth": "",
+            "gender": "A",
+            "ranking": "5"
+        },
+        "6": {
+            "name": "tristan",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "6"
+        },
+        "7": {
+            "name": "jul",
+            "firstname": "r",
+            "date_of_birth": "r",
+            "gender": "r",
+            "ranking": "7"
+        },
+        "8": {
+            "name": "joel",
+            "firstname": "r",
+            "date_of_birth": "r",
+            "gender": "r",
+            "ranking": "8"
+        }
+    },
+    "matchs": {
+        "1": {
+            "first_match": "Alain against rachid",
+            "second_match": "beber against tristan",
+            "third_match": "teo against jul",
+            "fourth_match": "clea against joel"
+        }
+    },
+    "scores": {
+        "1": {
+            "Alain": "1",
+            "rachid": "0",
+            "beber": "1",
+            "tristan": "0",
+            "teo": "1",
+            "jul": "0",
+            "clea": "1",
+            "joel": "0"
+        }
+    }
+}
