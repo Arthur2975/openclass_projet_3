@@ -8,80 +8,100 @@
     },
     "players": {
         "1": {
-            "name": "Alain",
-            "firstname": "A",
-            "date_of_birth": "A",
-            "gender": "A",
+            "name": "alain",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
             "ranking": "1"
         },
         "2": {
-            "name": "beber",
-            "firstname": "A",
-            "date_of_birth": "A",
-            "gender": "A",
+            "name": "lea",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
             "ranking": "2"
         },
         "3": {
-            "name": "teo",
-            "firstname": "A",
-            "date_of_birth": "A",
-            "gender": "A",
+            "name": "robert",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
             "ranking": "3"
         },
         "4": {
-            "name": "clea",
-            "firstname": "A",
-            "date_of_birth": "A",
-            "gender": "A",
+            "name": "pepe",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
             "ranking": "4"
         },
         "5": {
-            "name": "rachid",
-            "firstname": "A",
-            "date_of_birth": "",
-            "gender": "A",
+            "name": "papou",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
             "ranking": "5"
         },
         "6": {
-            "name": "tristan",
+            "name": "lolo",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
             "ranking": "6"
         },
         "7": {
-            "name": "jul",
-            "firstname": "r",
-            "date_of_birth": "r",
-            "gender": "r",
+            "name": "joni",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
             "ranking": "7"
         },
         "8": {
-            "name": "joel",
-            "firstname": "r",
-            "date_of_birth": "r",
-            "gender": "r",
+            "name": "fred",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
             "ranking": "8"
         }
     },
-    "matchs": {
+    "first_rnd_matchs": {
         "1": {
-            "first_match": "Alain against rachid",
-            "second_match": "beber against tristan",
-            "third_match": "teo against jul",
-            "fourth_match": "clea against joel"
+            "first_match": "alain against papou",
+            "second_match": "lea against lolo",
+            "third_match": "robert against joni",
+            "fourth_match": "pepe against fred"
         }
     },
-    "scores": {
+    "first_rnd_scores": {
         "1": {
-            "Alain": "1",
-            "rachid": "0",
-            "beber": "1",
-            "tristan": "0",
-            "teo": "1",
-            "jul": "0",
-            "clea": "1",
-            "joel": "0"
+            "alain": "1",
+            "papou": "0",
+            "lea": "1",
+            "lolo": "0",
+            "robert": "1",
+            "joni": "0",
+            "pepe": "1",
+            "fred": "0"
+        }
+    },
+    "second_rnd_scores": {
+        "1": {
+            "alain": "1",
+            "lea": "0",
+            "robert": "1",
+            "pepe": "0",
+            "papou": "1",
+            "lolo": "0",
+            "joni": "1",
+            "fred": "0"
+        }
+    },
+    "second_rnd_matchs": {
+        "1": {
+            "alain against lea": "alain against lea",
+            "robert against pepe": "robert against pepe",
+            "papou against lolo": "papou against lolo",
+            "joni against fred": "joni against fred"
         }
     }
 }
