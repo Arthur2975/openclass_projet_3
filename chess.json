@@ -1,107 +1,195 @@
 {
     "tournaments": {
         "1": {
-            "name": "wwc",
-            "place": "nyc",
-            "date": "12"
+            "name": "a",
+            "place": "a",
+            "date": "a"
         }
     },
     "players": {
         "1": {
-            "name": "alain",
+            "name": "a",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
             "ranking": "1"
         },
         "2": {
-            "name": "lea",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+            "name": "z",
+            "firstname": "z",
+            "date_of_birth": "z",
+            "gender": "z",
             "ranking": "2"
         },
         "3": {
-            "name": "robert",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+            "name": "q",
+            "firstname": "q",
+            "date_of_birth": "q",
+            "gender": "q",
             "ranking": "3"
         },
         "4": {
-            "name": "pepe",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+            "name": "s",
+            "firstname": "s",
+            "date_of_birth": "s",
+            "gender": "s",
             "ranking": "4"
         },
         "5": {
-            "name": "papou",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+            "name": "w",
+            "firstname": "w",
+            "date_of_birth": "w",
+            "gender": "w",
             "ranking": "5"
         },
         "6": {
-            "name": "lolo",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+            "name": "x",
+            "firstname": "x",
+            "date_of_birth": "x",
+            "gender": "x",
             "ranking": "6"
         },
         "7": {
-            "name": "joni",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+            "name": "t",
+            "firstname": "t",
+            "date_of_birth": "t",
+            "gender": "t",
             "ranking": "7"
         },
         "8": {
-            "name": "fred",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+            "name": "b",
+            "firstname": "b",
+            "date_of_birth": "b",
+            "gender": "b",
             "ranking": "8"
         }
     },
-    "first_rnd_matchs": {
+    "matchs": {
         "1": {
-            "first_match": "alain against papou",
-            "second_match": "lea against lolo",
-            "third_match": "robert against joni",
-            "fourth_match": "pepe against fred"
-        }
-    },
-    "first_rnd_scores": {
-        "1": {
-            "alain": "1",
-            "papou": "0",
-            "lea": "1",
-            "lolo": "0",
-            "robert": "1",
-            "joni": "0",
-            "pepe": "1",
-            "fred": "0"
-        }
-    },
-    "second_rnd_scores": {
-        "1": {
-            "alain": "1",
-            "lea": "0",
-            "robert": "1",
-            "pepe": "0",
-            "papou": "1",
-            "lolo": "0",
-            "joni": "1",
-            "fred": "0"
-        }
-    },
-    "second_rnd_matchs": {
-        "1": {
-            "alain against lea": "alain against lea",
-            "robert against pepe": "robert against pepe",
-            "papou against lolo": "papou against lolo",
-            "joni against fred": "joni against fred"
+            "first_match": [
+                [
+                    "a",
+                    "1"
+                ],
+                [
+                    "w",
+                    "0"
+                ]
+            ],
+            "second_match": [
+                [
+                    "z",
+                    "1"
+                ],
+                [
+                    "x",
+                    "0"
+                ]
+            ],
+            "third_match": [
+                [
+                    "q",
+                    "1"
+                ],
+                [
+                    "t",
+                    "0"
+                ]
+            ],
+            "fourth_match": [
+                [
+                    "s",
+                    "1"
+                ],
+                [
+                    "b",
+                    "0"
+                ]
+            ]
+        },
+        "2": {
+            "first_match": [
+                [
+                    "a",
+                    "1"
+                ],
+                [
+                    "w",
+                    "0"
+                ]
+            ],
+            "second_match": [
+                [
+                    "z",
+                    "1"
+                ],
+                [
+                    "x",
+                    "0"
+                ]
+            ],
+            "third_match": [
+                [
+                    "q",
+                    "1"
+                ],
+                [
+                    "t",
+                    "0"
+                ]
+            ],
+            "fourth_match": [
+                [
+                    "s",
+                    "1"
+                ],
+                [
+                    "b",
+                    "0"
+                ]
+            ]
+        },
+        "3": {
+            "first match": [
+                [
+                    "a",
+                    "1"
+                ],
+                [
+                    "z",
+                    "0"
+                ]
+            ],
+            "second match": [
+                [
+                    "q",
+                    "1"
+                ],
+                [
+                    "s",
+                    "0"
+                ]
+            ],
+            "third match": [
+                [
+                    "w",
+                    "1"
+                ],
+                [
+                    "x",
+                    "0"
+                ]
+            ],
+            "fourth match": [
+                [
+                    "t",
+                    "1"
+                ],
+                [
+                    "b",
+                    "0"
+                ]
+            ]
         }
     }
 }
