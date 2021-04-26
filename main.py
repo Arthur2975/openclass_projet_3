@@ -1,7 +1,7 @@
 import json
 from tinydb import TinyDB, Query
-from classes import player as play
-from classes import tournoi as tour
+from model import player as play
+from model import tournoi as tour
 
 db = TinyDB('chess.json')
 
@@ -109,7 +109,7 @@ def match():
 
     scores = []
     for round in all_matchs:
-        for key, value in all_matchs[0].items():
+        for key, value in round.items():
             tup_score = tuple(value)
             scores.append(tup_score)
 
@@ -166,11 +166,13 @@ def match():
                 while next_player in players_with_match:
                     index += 1
                     next_player = sorted_players[player_index + index]
-                    for match in match_already_played:
-                        # check the player and the next player didnt compete already in the other rounds
-                        while str(player) and str(next_player) in match:
-                            index += 1
-                            next_player = sorted_players[player_index + index]
+                # check the player and the next player didnt compete already in the other rounds
+                for match in match_already_played:
+                    index = 1
+                    competitors = [match[0][0], match[1][0]]
+                    while (str(player) in competitors) and (str(next_player) in competitors):
+                        index += 1
+                        next_player = sorted_players[player_index + index]
 
                 # actualize lists of match and players still free
                 actual_match = (player, next_player)
@@ -203,8 +205,9 @@ def main():
     new_tournament()
     new_player()
     match_first_round()
-    match_second_round()
-    match_third_round()
+    continue_while = True
+    while continue_while == True:
+        match()
 
 
 match()
