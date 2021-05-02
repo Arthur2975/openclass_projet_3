@@ -17,6 +17,86 @@ class round:
     def add_match(self):
         pass
 
+    def sort_list(list):
+        return sorted(list, key=operator.attrgetter("score"), reverse=True)
+
+    def match_first_round():
+        '''This function generates matchs between pairs of players, according to the 'swiss method' and allows to enter the scores of the matchs. The results
+        are saved into a file'''
+        # get players db
+        player_table = db.table('players')
+        all_players = player_table.all()
+
+        # deserialize players
+        list_player = play.Player.deserialize_players(all_players)
+
+        # seperate players in two groups
+        sorted_list_player = sorted(
+            list_player, key=lambda player: player.ranking)
+
+        upper_group = []
+        lower_group = []
+
+        upper_group = sorted_list_player[:4]
+        lower_group = sorted_list_player[4:8]
+
+        # first match
+        print('first_match : ' +
+              upper_group[0].name + ' against ' + lower_group[0].name)
+        # enter scores:
+        score_1 = input('Enter ' + upper_group[0].name + 's' + ' score')
+        play.Player.set_score(upper_group[0], score_1)
+        play.Player.add_opponents(upper_group[0], lower_group[0])
+        score_2 = input('Enter ' + lower_group[0].name + 's' + ' score')
+        play.Player.set_score(lower_group[0], score_2)
+        play.Player.add_opponents(lower_group[0], upper_group[0])
+
+        # second match
+        print('second match : ' +
+              upper_group[1].name + ' against ' + lower_group[1].name)
+        # enter scores:
+        score_3 = input('Enter ' + upper_group[1].name + 's' + ' score')
+        play.Player.set_score(upper_group[1], score_3)
+        play.Player.add_opponents(upper_group[1], lower_group[1])
+        score_4 = input('Enter ' + lower_group[1].name + 's' + ' score')
+        play.Player.set_score(lower_group[1], score_4)
+        play.Player.add_opponents(lower_group[1], upper_group[1])
+
+        # third match
+        print('third_match : ' +
+              upper_group[2].name + ' against ' + lower_group[2].name)
+        # Enter scores:
+        score_5 = input('Enter ' + upper_group[2].name + 's' + ' score')
+        play.Player.set_score(upper_group[2], score_5)
+        play.Player.add_opponents(upper_group[2], lower_group[2])
+        score_6 = input('Enter ' + lower_group[2].name + 's' + ' score')
+        play.Player.set_score(lower_group[2], score_6)
+        play.Player.add_opponents(lower_group[2], upper_group[2])
+
+        # fourth match
+        print('fourth_match : ' +
+              upper_group[3].name + ' against ' + lower_group[3].name)
+        # Enter scores:
+        score_7 = input('Enter ' + upper_group[3].name + 's' + ' score')
+        play.Player.set_score(upper_group[3], score_7)
+        play.Player.add_opponents(upper_group[3], lower_group[3])
+        score_8 = input('Enter ' + lower_group[3].name + 's' + ' score')
+        play.Player.set_score(lower_group[3], score_8)
+        play.Player.add_opponents(lower_group[3], upper_group[3])
+
+        serialized_match = {'first_match': ([str(upper_group[0].name), score_1], [str(lower_group[0].name), score_2]),
+                            'second_match': ([str(upper_group[1].name), score_3], [str(lower_group[1].name), score_4]),
+                            'third_match': ([str(upper_group[2].name), score_5], [str(lower_group[2].name), score_6]),
+                            'fourth_match': ([str(upper_group[3].name), score_7], [str(lower_group[3].name), score_8])}
+        match_table = db.table('matchs')
+        match_table.insert(serialized_match)
+
+        # save players
+        player_table = db.table('players')
+        player_table.truncate()
+        for player in list_player:
+            play.Player.save(player)
+
     def match():
         # get db
         matchs_table = db.table('matchs')
@@ -24,17 +104,13 @@ class round:
         table_player = db.table('players')
         all_players = table_player.all()
 
-        # recreate instances of players
-        list_player = []
-        for player in all_players:
-            list_player.append(play.Player(
-                player['name'], player['firstname'], player['date_of_birth'], player['gender'], player['ranking'], player['score'], player['opponents']))
+        # deserialize players
+        list_player = play.Player.deserialize_players(all_players)
 
         # sort player by scores
-        sorted_players = sorted(
-            list_player, key=operator.attrgetter("score"), reverse=True)
+        sorted_players = round.sort_list(list_player)
 
-        # apparing with objects
+        # pairing players
         players_with_match = []
         match_list = []
 

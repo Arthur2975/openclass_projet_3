@@ -29,12 +29,13 @@ class Player:
         players_table = db.table('players')
         players_table.insert(serialized_player)
 
-    def deserialize_players(all_players, list_player):
+    def deserialize_players(list_of_players):
         '''get the db and deserializes instances of players'''
-
-        for player in all_players:
-            list_player.append(Player(
-                player['name'], player['firstname'], player['date_of_birth'], player['gender'], player['ranking'], score=0, opponents=[]))
+        deserialized_list = []
+        for player in list_of_players:
+            deserialized_list.append(Player(
+                player['name'], player['firstname'], player['date_of_birth'], player['gender'], player['ranking'], player['score'], player['opponents']))
+        return deserialized_list
 
     # get player's infos
 

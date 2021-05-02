@@ -41,3 +41,25 @@ class Tournoi:
                                  'place': self.place, 'date': self.date}
         tournaments_table = db.table('tournaments')
         tournaments_table.insert(serialized_tournament)
+
+    def new_tournament():
+        ''' This function creates a new tournament and save it into a json file'''
+
+        new_tournament = tour.Tournoi(
+            input(' New tournament: \n Tournament_s name'), input(' place'), input('date'))
+        tour.Tournoi.save(new_tournament)
+
+    def new_player():
+        '''This function creates a new player and save it into a json file'''
+
+        continue_while = True
+
+        while continue_while == True:
+            add_player = input('Do you want to add a new player? : Y/N')
+            if add_player.lower() != 'y':
+                break
+            else:
+                new_player = play.Player(input('name: '), input('firstname: '), input(
+                    'date_of_birth: '), input('gender: '), input('ranking: '), score=0, opponents=[])
+
+            play.Player.save(new_player)
