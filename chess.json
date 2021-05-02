@@ -1,78 +1,139 @@
 {
     "tournaments": {
         "1": {
-            "name": "ww",
+            "name": "w",
             "place": "w",
-            "date": "12"
+            "date": "w"
+        },
+        "2": {
+            "name": "w",
+            "place": "w",
+            "date": "w"
         }
     },
     "players": {
         "1": {
-            "name": "alex",
+            "name": "eliott",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
-            "ranking": "1"
+            "ranking": "1",
+            "score": 4,
+            "opponents": [
+                "laurent",
+                "arthur",
+                "nina",
+                "victor"
+            ]
         },
         "2": {
             "name": "arthur",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
-            "ranking": "2"
+            "ranking": "2",
+            "score": 3,
+            "opponents": [
+                "marie",
+                "eliott",
+                "victor",
+                "nina"
+            ]
         },
         "3": {
-            "name": "alain",
+            "name": "nina",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
-            "ranking": "3"
+            "ranking": "3",
+            "score": 2,
+            "opponents": [
+                "vicky",
+                "victor",
+                "eliott",
+                "arthur"
+            ]
         },
         "4": {
-            "name": "arnaud",
-            "firstname": "a",
+            "name": "victor",
+            "firstname": "",
             "date_of_birth": "a",
             "gender": "a",
-            "ranking": "4"
+            "ranking": "4",
+            "score": 1,
+            "opponents": [
+                "mael",
+                "nina",
+                "arthur",
+                "eliott"
+            ]
         },
         "5": {
-            "name": "albert",
+            "name": "laurent",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
-            "ranking": "5"
+            "ranking": "5",
+            "score": 3,
+            "opponents": [
+                "eliott",
+                "marie",
+                "vicky",
+                "mael"
+            ]
         },
         "6": {
-            "name": "azenor",
+            "name": "marie",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
-            "ranking": "6"
+            "ranking": "6",
+            "score": 2,
+            "opponents": [
+                "arthur",
+                "laurent",
+                "mael",
+                "vicky"
+            ]
         },
         "7": {
-            "name": "astrid",
+            "name": "vicky",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
-            "ranking": "7"
+            "ranking": "7",
+            "score": 1,
+            "opponents": [
+                "nina",
+                "mael",
+                "laurent",
+                "marie"
+            ]
         },
         "8": {
-            "name": "ali",
+            "name": "mael",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
-            "ranking": "8"
+            "ranking": "8",
+            "score": 0,
+            "opponents": [
+                "victor",
+                "vicky",
+                "marie",
+                "laurent"
+            ]
         }
     },
     "matchs": {
         "1": {
             "first_match": [
                 [
-                    "alex",
+                    "eliott",
                     "1"
                 ],
                 [
-                    "albert",
+                    "laurent",
                     "0"
                 ]
             ],
@@ -82,27 +143,27 @@
                     "1"
                 ],
                 [
-                    "azenor",
+                    "marie",
                     "0"
                 ]
             ],
             "third_match": [
                 [
-                    "alain",
+                    "nina",
                     "1"
                 ],
                 [
-                    "astrid",
+                    "vicky",
                     "0"
                 ]
             ],
             "fourth_match": [
                 [
-                    "arnaud",
+                    "victor",
                     "1"
                 ],
                 [
-                    "ali",
+                    "mael",
                     "0"
                 ]
             ]
@@ -110,7 +171,7 @@
         "2": {
             "first match": [
                 [
-                    "alex",
+                    "eliott",
                     "1"
                 ],
                 [
@@ -120,73 +181,31 @@
             ],
             "second match": [
                 [
-                    "alain",
+                    "nina",
                     "1"
                 ],
                 [
-                    "arnaud",
+                    "victor",
                     "0"
                 ]
             ],
             "third match": [
                 [
-                    "albert",
+                    "laurent",
                     "1"
                 ],
                 [
-                    "azenor",
+                    "marie",
                     "0"
                 ]
             ],
             "fourth match": [
                 [
-                    "astrid",
+                    "vicky",
                     "1"
                 ],
                 [
-                    "ali",
-                    "0"
-                ]
-            ]
-        },
-        "3": {
-            "first match": [
-                [
-                    "alex",
-                    "1"
-                ],
-                [
-                    "alain",
-                    "0"
-                ]
-            ],
-            "second match": [
-                [
-                    "arthur",
-                    "1"
-                ],
-                [
-                    "arnaud",
-                    "0"
-                ]
-            ],
-            "third match": [
-                [
-                    "albert",
-                    "1"
-                ],
-                [
-                    "astrid",
-                    "0"
-                ]
-            ],
-            "fourth match": [
-                [
-                    "azenor",
-                    "1"
-                ],
-                [
-                    "ali",
+                    "mael",
                     "0"
                 ]
             ]

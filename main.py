@@ -2,6 +2,7 @@ import json
 from tinydb import TinyDB, Query
 from model import player as play
 from model import tournoi as tour
+import operator
 
 db = TinyDB('chess.json')
 
@@ -25,7 +26,7 @@ def new_player():
             break
         else:
             new_player = play.Player(input('name: '), input('firstname: '), input(
-                'date_of_birth: '), input('gender: '), input('ranking: '))
+                'date_of_birth: '), input('gender: '), input('ranking: '), score=0, opponents=[])
 
         play.Player.save(new_player)
 
@@ -33,15 +34,15 @@ def new_player():
 def match_first_round():
     '''This function generates matchs between pairs of players, according to the 'swiss method' and allows to enter the scores of the matchs. The results
     are saved into a file'''
+    # get players db
+    player_table = db.table('players')
+    all_players = player_table.all()
 
-    table_player = db.table('players')
-    all_players = table_player.all()
-
+    # deserialize players
     list_player = []
-    for player in all_players:
-        list_player.append(play.Player(
-            player['name'], player['firstname'], player['date_of_birth'], player['gender'], player['ranking']))
+    play.Player.deserialize_players(all_players, list_player)
 
+    # seperate players in two groups
     sorted_list_player = sorted(list_player, key=lambda player: player.ranking)
 
     upper_group = []
@@ -55,28 +56,44 @@ def match_first_round():
           upper_group[0].name + ' against ' + lower_group[0].name)
     # enter scores:
     score_1 = input('Enter ' + upper_group[0].name + 's' + ' score')
+    play.Player.set_score(upper_group[0], score_1)
+    play.Player.add_opponents(upper_group[0], lower_group[0])
     score_2 = input('Enter ' + lower_group[0].name + 's' + ' score')
+    play.Player.set_score(lower_group[0], score_2)
+    play.Player.add_opponents(lower_group[0], upper_group[0])
 
     # second match
     print('second match : ' +
           upper_group[1].name + ' against ' + lower_group[1].name)
     # enter scores:
     score_3 = input('Enter ' + upper_group[1].name + 's' + ' score')
+    play.Player.set_score(upper_group[1], score_3)
+    play.Player.add_opponents(upper_group[1], lower_group[1])
     score_4 = input('Enter ' + lower_group[1].name + 's' + ' score')
+    play.Player.set_score(lower_group[1], score_4)
+    play.Player.add_opponents(lower_group[1], upper_group[1])
 
     # third match
     print('third_match : ' +
           upper_group[2].name + ' against ' + lower_group[2].name)
     # Enter scores:
     score_5 = input('Enter ' + upper_group[2].name + 's' + ' score')
+    play.Player.set_score(upper_group[2], score_5)
+    play.Player.add_opponents(upper_group[2], lower_group[2])
     score_6 = input('Enter ' + lower_group[2].name + 's' + ' score')
+    play.Player.set_score(lower_group[2], score_6)
+    play.Player.add_opponents(lower_group[2], upper_group[2])
 
     # fourth match
     print('fourth_match : ' +
           upper_group[3].name + ' against ' + lower_group[3].name)
     # Enter scores:
     score_7 = input('Enter ' + upper_group[3].name + 's' + ' score')
+    play.Player.set_score(upper_group[3], score_7)
+    play.Player.add_opponents(upper_group[3], lower_group[3])
     score_8 = input('Enter ' + lower_group[3].name + 's' + ' score')
+    play.Player.set_score(lower_group[3], score_8)
+    play.Player.add_opponents(lower_group[3], upper_group[3])
 
     serialized_match = {'first_match': ([str(upper_group[0].name), score_1], [str(lower_group[0].name), score_2]),
                         'second_match': ([str(upper_group[1].name), score_3], [str(lower_group[1].name), score_4]),
@@ -85,118 +102,86 @@ def match_first_round():
     match_table = db.table('matchs')
     match_table.insert(serialized_match)
 
+    # save players
+    player_table = db.table('players')
+    player_table.truncate()
+    for player in list_player:
+        play.Player.save(player)
+
 
 def match():
-
-    # recreate instances of players
-    table_player = db.table('players')
-    all_players = table_player.all()
-
-    list_player = []
-    for player in all_players:
-        list_player.append(play.Player(
-            player['name'], player['firstname'], player['date_of_birth'], player['gender'], player['ranking']))
 
     # get db
     matchs_table = db.table('matchs')
     all_matchs = matchs_table.all()
+    table_player = db.table('players')
+    all_players = table_player.all()
 
-    # add scores
-    # initialize list of cumulated scores
-    total_scores = {}
-    for player in list_player:
-        total_scores[player.name] = 0
+    # recreate instances of players
+    list_player = []
+    for player in all_players:
+        list_player.append(play.Player(
+            player['name'], player['firstname'], player['date_of_birth'], player['gender'], player['ranking'], player['score'], player['opponents']))
 
-    scores = []
-    for round in all_matchs:
-        for key, value in round.items():
-            tup_score = tuple(value)
-            scores.append(tup_score)
+    # sort player by scores
+    sorted_players = sorted(
+        list_player, key=operator.attrgetter("score"), reverse=True)
 
-    for tuple_ in scores:
-        for liste in tuple_:
-            for score in total_scores:
-                if str(liste[0]) == str(score):
-                    total_scores[score] += int(liste[1])
-
-    # sort players by score
-    sorted_total_scores = sorted(
-        total_scores.items(), key=lambda t: t[1], reverse=True)
-
-    # liste of match that have already been played
-    match_already_played = []
-    for element in all_matchs:
-        for key, value in element.items():
-            match_already_played.append(value)
-
-    # liste of players by score
-    sorted_players = []
-    for player in sorted_total_scores:
-        sorted_players.append(player[0])
-
-    match_list = []
+    # apparing with objects
     players_with_match = []
+    match_list = []
 
-    # get all players
-    players = db.table('players')
-    all_players = players.all()
+    for player in sorted_players:
+        # verify the match weren't allready generated
+        if len(players_with_match) == len(list_player):
+            print('matchs generated')
+            break
+        else:
+            # verify the player hasn't got a match allready
+            if player in players_with_match:
+                continue
+            else:
+                player_index = sorted_players.index(player)
+                for opponent in list_player:
+                    if opponent in players_with_match:
+                        continue
+                    else:
+                        if opponent == player:
+                            continue
+                        elif opponent.name in player.opponents:
+                            continue
+                        else:
+                            match = (player, opponent)
+                            break
 
-    # check if all match have been created for the round
-    if len(players_with_match) == len(all_players):
-        print('All matchs generated')
+            # actualize lists
+            players_with_match.append(player)
+            players_with_match.append(opponent)
+            match_list.append(match)
 
-    else:
-        for player in sorted_players:
-            player_index = sorted_players.index(player)
+            match_names = (player.name, opponent.name)
+            print(match_names)
+            score_1 = input('Enter {} _s score'.format(player.name))
+            score_2 = input('Enter {} _s score'.format(opponent.name))
+            play.Player.set_score(player, score_1)
+            play.Player.set_score(opponent, score_2)
+            play.Player.add_opponents(player, opponent)
+            play.Player.add_opponents(opponent, player)
 
-            # pair with the next player
+    # truncate et insert player_table
+    table_player.truncate()
+    for player in list_player:
+        play.Player.save(player)
 
-            if len(players_with_match) == len(all_players):
-                print('All matchs generated')
-                break
-            if player_index != len(all_players)-1:
-                while player in players_with_match:
-                    player_index += 1
-                    player = sorted_players[player_index]
-
-            if player_index != len(all_players)-1:
-                next_player = sorted_players[player_index + 1]
-                index = 1
-                # check the next player doesnt have a match already
-                while next_player in players_with_match:
-                    index += 1
-                    next_player = sorted_players[player_index + index]
-                # check the player and the next player didnt compete already in the other rounds
-                for match in match_already_played:
-                    index = 1
-                    competitors = [match[0][0], match[1][0]]
-                    while (str(player) in competitors) and (str(next_player) in competitors):
-                        index += 1
-                        next_player = sorted_players[player_index + index]
-
-                # actualize lists of match and players still free
-                actual_match = (player, next_player)
-                match_list.append(actual_match)
-                players_with_match.append(player)
-                players_with_match.append(next_player)
-                print(actual_match)
-
-    # add scores
-    score_1 = input('enter' + match_list[0][0] + 'score')
-    score_2 = input('enter' + match_list[0][1] + 'score')
-    score_3 = input('enter' + match_list[1][0] + 'score')
-    score_4 = input('enter' + match_list[1][1] + 'score')
-    score_5 = input('enter' + match_list[2][0] + 'score')
-    score_6 = input('enter' + match_list[2][1] + 'score')
-    score_7 = input('enter' + match_list[3][0] + 'score')
-    score_8 = input('enter' + match_list[3][1] + 'score')
-
+    # marche pas car score 3 à 8 n'existe plus, trouver autre technique avec les classe round pour récupérer les scores
+    '''
     # serialize and export matchs to db
-    serialized_match = {'first match': ([match_list[0][0], score_1], [match_list[0][1], score_2]),
-                        'second match': ([match_list[1][0], score_3], [match_list[1][1], score_4]),
-                        'third match': ([match_list[2][0], score_5], [match_list[2][1], score_6]),
-                        'fourth match': ([match_list[3][0], score_7], [match_list[3][1], score_8])}
+    serialized_match = {'first match': ([match_list[0][0].name, score_1], [match_list[0][1].name, score_2]),
+                        'second match': ([match_list[1][0].name, score_3], [match_list[1][1].name, score_4]),
+                        'third match': ([match_list[2][0].name, score_5], [match_list[2][1].name, score_6]),
+                        'fourth match': ([match_list[3][0].name, score_7], [match_list[3][1].name, score_8])}
     matchs_table.insert(serialized_match)
+    '''
 
 
 def main():

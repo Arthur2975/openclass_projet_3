@@ -1,4 +1,8 @@
-from tinydb import TinyDB
+import json
+from tinydb import TinyDB, Query
+from model import player as play
+from model import tournoi as tour
+import operator
 
 db = TinyDB('chess.json')
 
