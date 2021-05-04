@@ -12,10 +12,10 @@ class round:
         self.name = name
         self.date = date
         self.hour = hour
-        self.first_match = []
+        self.match_list = []
 
-    def add_match(self):
-        pass
+    def add_match(self, match):
+        self.match_list.append(match)
 
     def sort_list(list):
         return sorted(list, key=operator.attrgetter("score"), reverse=True)
@@ -131,7 +131,7 @@ class round:
                         else:
                             if opponent == player:
                                 continue
-                            elif opponent.name in player.opponents:
+                            elif opponent.name in player.opponents_name:
                                 continue
                             else:
                                 match = (player, opponent)
@@ -157,6 +157,7 @@ class round:
             play.Player.save(player)
 
         # marche pas car score 3 à 8 n'existe plus, trouver autre technique avec les classe round pour récupérer les scores
+        # faire une liste avec les scores et serializer
         '''
         # serialize and export matchs to db
         serialized_match = {'first match': ([match_list[0][0].name, score_1], [match_list[0][1].name, score_2]),

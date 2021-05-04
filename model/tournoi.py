@@ -9,16 +9,14 @@ db = TinyDB('chess.json')
 
 class Tournoi:
 
-    NUMBER_OF_TOURS = 4
-    matchs_list = []
-    players_list = []
-
-    def __init__(self, name, place, date):
-        '''This is the class constructor'''
+    def __init__(self, name, place, date, match=[], number_of_tours=4):
+        '''Class constructor'''
 
         self.name = name
         self.place = place
         self.date = date
+        self.match = match
+        self.number_of_tours = number_of_tours
 
     def get_date(self):
         return self.date
@@ -60,6 +58,6 @@ class Tournoi:
                 break
             else:
                 new_player = play.Player(input('name: '), input('firstname: '), input(
-                    'date_of_birth: '), input('gender: '), input('ranking: '), score=0, opponents=[])
+                    'date_of_birth: '), input('gender: '), input('ranking: '))
 
             play.Player.save(new_player)

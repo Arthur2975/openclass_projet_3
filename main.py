@@ -14,11 +14,22 @@ def main():
     tour.Tournoi.new_tournament()
     tour.Tournoi.new_player()
     rnd.round.match_first_round()
-    continue_while = 0
-    while continue_while <= 4:
+    tournament_table = db.table('tournaments')
+    db_tournament = tournament_table.all()
+    tournament = tour.Tournoi(
+        name=db_tournament[0]['name'], place=db_tournament[0]['place'], date=db_tournament[0]['date'])
+    continue_while = 2
+    while continue_while < int(tournament.number_of_tours):
         rnd.round.match()
         continue_while += 1
+    print('Tournament over!')
+    input('press enter to visualize tournament results')
+    print('scores: blabla')
 
 
 if __name__ == '__main__':
     main()
+
+# role du main juste appeler le controleur
+# mettre tous les trucs du main dans ctrlr
+# mvc + flake 8

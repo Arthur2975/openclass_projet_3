@@ -10,7 +10,7 @@ db = TinyDB('chess.json')
 class Player:
     '''Class defining a player and its attributes'''
 
-    def __init__(self, name, firstname, date_of_birth, gender, ranking, score, opponents):
+    def __init__(self, name, firstname, date_of_birth, gender, ranking, score=0, opponents=[]):
         '''This is the class constructor'''
 
         self.name = name
@@ -19,13 +19,13 @@ class Player:
         self.gender = gender
         self.ranking = ranking
         self.score = score
-        self.opponents = opponents
+        self.opponents_name = opponents
 
     def save(self):
         '''This method serialize an instance and save it in the db'''
 
         serialized_player = {'name': self.name, 'firstname': self.firstname,
-                             'date_of_birth': self.date_of_birth, 'gender': self.gender, 'ranking': self.ranking, 'score': self.score, 'opponents': self.opponents}
+                             'date_of_birth': self.date_of_birth, 'gender': self.gender, 'ranking': self.ranking, 'score': self.score, 'opponents': self.opponents_name}
         players_table = db.table('players')
         players_table.insert(serialized_player)
 
@@ -45,15 +45,11 @@ class Player:
     def set_ranking(self, ranking):
         self.ranking = ranking
 
-    def has_match(self, nex_player):
-        if next_player in self.opponents:
-            return False
-
     def set_score(self, score):
         self.score += int(score)
 
     def add_opponents(self, opponent):
-        self.opponents.append(str(opponent.name))
+        self.opponents_name.append(str(opponent.name))
 
     def get_opponents(self):
-        return self.opponents
+        return self.opponents_name
