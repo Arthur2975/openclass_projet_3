@@ -1,8 +1,5 @@
-import json
-from tinydb import TinyDB, Query
-from model import player as play
-from model import tournoi as tour
-import operator
+from tinydb import TinyDB
+
 
 db = TinyDB('chess.json')
 
@@ -46,7 +43,7 @@ class Player:
         self.ranking = ranking
 
     def set_score(self, score):
-        self.score += int(score)
+        self.score += float(score)
 
     def add_opponents(self, opponent):
         self.opponents_name.append(str(opponent.name))
