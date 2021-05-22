@@ -24,16 +24,24 @@ class Controller:
             self.main_menu()
         elif user_answer == 3:
             self.generate_rounds()
+            self.main_menu()
         elif user_answer == 4:
-            pass
+            self.save()
+            self.main_menu()
         elif user_answer == 5:
-            pass
+            self.load()
+            self.main_menu()
         elif user_answer == 6:
             self.erase_db()
+            self.main_menu()
         elif user_answer == 7:
             pass
+            self.main_menu()
         elif user_answer == 8:
             self.generate_reports()
+            self.main_menu()
+        else:
+            self.main_menu()
 
     def generate_rounds(self):
         '''docstrings'''
@@ -74,6 +82,12 @@ class Controller:
         # final phrase and results
         views.Views.print_final_scores(list_of_players)
 
+    def save(self):
+        pass
+
+    def load(self):
+        pass
+
     def generate_reports(self):
         '''docstring'''
         user_answer = views.Views.reports()
@@ -101,6 +115,7 @@ class Controller:
     def report_all_tournaments(self):
         tournaments_table = db.table('tournaments')
         all_tournaments = tournaments_table.all()
+        print(all_tournaments)
 
     def report_all_tournee(self):
         pass
@@ -116,3 +131,6 @@ class Controller:
         elif user_answer == 2:
             players_table = db.table('players')
             players_table.truncate()
+
+
+# creer classe rapport dans les model qui fait tout ca

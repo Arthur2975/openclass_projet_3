@@ -22,7 +22,9 @@ class Player:
         '''This method serialize an instance and save it in the db'''
 
         serialized_player = {'name': self.name, 'firstname': self.firstname,
-                             'date_of_birth': self.date_of_birth, 'gender': self.gender, 'ranking': self.ranking, 'score': self.score, 'opponents': self.opponents_name}
+                             'date_of_birth': self.date_of_birth, 'gender': self.gender,
+                             'ranking': self.ranking, 'score': self.score,
+                             'opponents': self.opponents_name}
         players_table = db.table('players')
         players_table.insert(serialized_player)
 
@@ -31,7 +33,8 @@ class Player:
         deserialized_list = []
         for player in list_of_players:
             deserialized_list.append(Player(
-                player['name'], player['firstname'], player['date_of_birth'], player['gender'], player['ranking'], player['score'], player['opponents']))
+                player['name'], player['firstname'], player['date_of_birth'],
+                player['gender'], player['ranking'], player['score'], player['opponents']))
         return deserialized_list
 
     # get player's infos

@@ -6,11 +6,11 @@ db = TinyDB('chess.json')
 
 
 class Round:
-    def __init__(self, name, date, hour):
+    def __init__(self, name, date, time, match_list=[]):
         self.name = name
         self.date = date
-        self.hour = hour
-        self.match_list = []
+        self.time = time
+        self.match_list = match_list
 
     def add_match(self, match):
         self.match_list.append(match)
@@ -91,3 +91,9 @@ class Round:
             return Round.first_rnd()
         else:
             return Round.round()
+
+    def save_rnd(self):
+        serialized_match = {'name': self.name, 'date': self.date,
+                            'hour': self.hour, 'match_list': self.match_list}
+        round_table = db.table('rounds')
+        round_table.insert(serialized_match)

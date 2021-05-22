@@ -14,7 +14,8 @@ if __name__ == '__main__':
     main()
 
 
-# controller les input, 1 ou 0, 0,5 rien d'autre
-# rajouter un attribut à la classe tournoi avec liste des joueurs, les tours et les matchs
-# rajouter serializer les match dans def match
-# generer un rapport html de flake 8 -> module flake 8 html
+# retourner au menu entre tous les rounds
+# lier les joueurs au tournoi dans bd
+# stocker les score de chaque match et chaque match adversaires dans la bd
+
+# load les tournoi et creer les instances

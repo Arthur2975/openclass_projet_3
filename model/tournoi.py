@@ -7,34 +7,29 @@ db = TinyDB('chess.json')
 
 class Tournoi:
 
-    def __init__(self, name, place, date, match=[], number_of_tours=4):
+    def __init__(self, name, place, date,
+                 number_of_tours=4, players=[], rounds=[],
+                 time_control='bullet', comment=None):
         '''Class constructor'''
 
         self.name = name
         self.place = place
         self.date = date
-        self.match = match
         self.number_of_tours = number_of_tours
+        self.players = players
+        self.rounds = rounds
+        self.time_control = time_control
+        self.comment = comment
 
-    def get_date(self):
-        return self.date
-
-    def set_date(self, date):
-        self.date = date
-
-    def time_control():
-        # time control
-        pass
-
-    def add_comment():
-        # write director's comment
-        pass
+    def set_comment(self, comment):
+        self.comment = comment
 
     def save(self):
         '''This method serialize an instance of tournament and save it into a json file'''
 
         serialized_tournament = {'name': self.name,
-                                 'place': self.place, 'date': self.date, 'match': self.match, 'number_of_tours': self.number_of_tours, }
+                                 'place': self.place, 'date': self.date,
+                                 'rounds': self.rounds, 'number_of_tours': self.number_of_tours, }
         tournaments_table = db.table('tournaments')
         tournaments_table.insert(serialized_tournament)
 
