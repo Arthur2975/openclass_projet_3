@@ -1,8 +1,8 @@
 from tinydb import TinyDB
-from model import tournoi as tour
-from view import views
-from model import round as rnd
-from model import player as play
+from model.tournament import Tournament
+from views.views import Views
+from model.round import Round
+from model.player import Player
 
 db = TinyDB('chess.json')
 
@@ -13,33 +13,42 @@ class Controller:
     def __init__(self):
         pass
 
+    def create_or_load(self):
+        user_answer = Views.print_create_or_load()
+        if user_answer == 1:
+            tournament = Views.create_new_tournament()
+        elif user_answer == 2:
+            tournament = Tournament.load_tournament(input('tournament number: '))
+        else:
+            Views.print_create_or_load()
+
     def main_menu(self):
         '''docstring'''
-        user_answer = views.Views.print_main_menu()
+        user_answer = Views.print_main_menu()
         if user_answer == 1:
-            tour.Tournoi.new_tournament()
+            Tournament.new_tournament()
             self.main_menu()
         elif user_answer == 2:
-            tour.Tournoi.new_player()
+            Tournament.new_player()
             self.main_menu()
         elif user_answer == 3:
             self.generate_rounds()
             self.main_menu()
         elif user_answer == 4:
-            self.save()
-            self.main_menu()
-        elif user_answer == 5:
-            self.load()
-            self.main_menu()
-        elif user_answer == 6:
             self.erase_db()
             self.main_menu()
-        elif user_answer == 7:
-            pass
-            self.main_menu()
-        elif user_answer == 8:
+        elif user_answer == 5:
             self.generate_reports()
             self.main_menu()
+        elif user_answer == 9:
+            answer = Views.exit()
+            if answer == 1:
+                Tournament.save()
+                Player.save()
+                self.main_menu()
+            if answer == 2:
+                print('good bye!')
+                exit(0)
         else:
             self.main_menu()
 
@@ -48,49 +57,43 @@ class Controller:
         # generate rounds
         tournament_table = db.table('tournaments')
         db_tournament = tournament_table.all()
-        tournament = tour.Tournoi(
+        tournament = Tournoi(
             name=db_tournament[0]['name'], place=db_tournament[0]['place'], date=db_tournament[0]['date'])
         continue_while = 0
         round_index = 1
         while continue_while < int(tournament.number_of_tours):
             # generate the first rnd
-            list_of_matchs = rnd.Round.all_rounds(round_index)
+            list_of_matchs = Round.all_rounds(round_index)
             list_of_players = []
             for match in list_of_matchs:
                 for player in match:
                     list_of_players.append(player)
             # show generated matchs
-            views.Views.show_match(list_of_matchs)
+            Views.show_match(list_of_matchs)
             # enter scores
             for match in list_of_matchs:
                 for player in match:
-                    score = views.Views.propose_to_enter_scores(player.name)
-                    play.Player.set_score(
+                    score = Views.propose_to_enter_scores(player.name)
+                    Player.set_score(
                         player, score)
             # add opponent
             for match in list_of_matchs:
-                play.Player.add_opponents(match[0], match[1])
-                play.Player.add_opponents(match[1], match[0])
+                Player.add_opponents(match[0], match[1])
+                Player.add_opponents(match[1], match[0])
             # update players
             player_table = db.table('players')
             player_table.truncate()
             for player in list_of_players:
-                play.Player.save(player)
+                Player.save(player)
             round_index += 1
             continue_while += 1
 
         # final phrase and results
-        views.Views.print_final_scores(list_of_players)
-
-    def save(self):
-        pass
-
-    def load(self):
-        pass
+        Views.print_final_scores(list_of_players)
 
     def generate_reports(self):
         '''docstring'''
-        user_answer = views.Views.reports()
+        user_answer = Views.reports()
         if user_answer == 1:
             self.report_all_actors()
         elif user_answer == 2:
@@ -124,7 +127,7 @@ class Controller:
         pass
 
     def erase_db(self):
-        user_answer = views.Views.propose_to_erase()
+        user_answer = Views.propose_to_erase()
         if user_answer == 1:
             tournament_table = db.table('tournaments')
             tournament_table.truncate()

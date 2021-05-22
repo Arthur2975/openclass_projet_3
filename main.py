@@ -7,6 +7,7 @@ db = TinyDB('chess.json')
 def main():
     '''main'''
     ctrl = controller.Controller()
+    ctrl.create_or_load()
     ctrl.main_menu()
 
 
@@ -19,3 +20,5 @@ if __name__ == '__main__':
 # stocker les score de chaque match et chaque match adversaires dans la bd
 
 # load les tournoi et creer les instances
+
+# modif les import de modules, ex; from model.round import Round
