@@ -9,27 +9,34 @@ class Views:
     '''docstring'''
 
     def print_create_or_load():
-        print('Do you want to create or load a tournament?')
-        print('Press 1: To create a new tournament')
-        print('Press 2: To load an existing tournament')
-        user_answer = input('Enter your choice: ')
+        user_answer = 0
+        while user_answer not in (1, 2):
+            print('Do you want to create or load a tournament?')
+            print('Press 1: To create a new tournament')
+            print('Press 2: To load an existing tournament')
+            user_answer = input('Enter your choice: ')
 
-        return int(user_answer)
+            try:
+                return int(user_answer)
+            except:
+                user_answer = 0
 
     def print_main_menu():
         user_answer = 0
         while user_answer not in (1, 2, 3, 4, 5, 9):
-            print('Chess tournament')
-            print('----------------')
-            print('Press 1: To create the tournament')
-            print('Press 2: To create a new player')
-            print('Press 3: To create match')
-            print('Press 4: Erase tournaments or players')
-            print('Press 5: To get reports')
+            print('----')
+            print('MENU')
+            print('----')
+            print('Press 1: To create a new player')
+            print('Press 2: To create match')
+            print('Press 3: Erase tournaments or players')
+            print('Press 4: To get reports')
             print('Press 9: To exit')
             user_answer = input('Enter your choice: ')
-
-            return int(user_answer)
+            try:
+                return int(user_answer)
+            except:
+                user_answer = 0
 
     def create_new_tournament():
         tournament = Tournament(name=input('name: '), place=input('place: '), date=input('date: '))

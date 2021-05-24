@@ -92,8 +92,11 @@ class Round:
         else:
             return Round.round()
 
-    def save_rnd(self):
+    def save(self):
         serialized_match = {'name': self.name, 'date': self.date,
-                            'hour': self.hour, 'match_list': self.match_list}
+                            'time': self.time, 'match_list': self.match_list}
         round_table = db.table('rounds')
         round_table.insert(serialized_match)
+
+    def load(self):
+        pass

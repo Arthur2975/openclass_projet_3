@@ -53,3 +53,9 @@ class Player:
 
     def get_opponents(self):
         return self.opponents_name
+
+    def check_max_player():
+        players_table = db.table('players')
+        players = players_table.all()
+        if len(players) == 8:
+            return True

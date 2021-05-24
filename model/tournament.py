@@ -38,25 +38,3 @@ class Tournament:
         tournament = tournament_dict[int(tournament_number)]
         tour = Tournament(name=tournament['name'], place=tournament['place'], date=tournament['place'])
         return tour
-
-    def new_tournament():
-        ''' This function creates a new tournament and save it into a json file'''
-
-        new_tournament = Tournament(
-            input(' New tournament: \n Tournament_s name '), input(' place '), input(' date '))
-        Tournament.save(new_tournament)
-
-    def new_player():
-        '''This function creates a new player and save it into a json file'''
-
-        continue_while = 0
-
-        while continue_while == 0:
-            add_player = input('Do you want to add a new player? : Y/N')
-            if add_player.lower() != 'y':
-                break
-            else:
-                new_player = Player(input('name: '), input('firstname: '), input(
-                    'date_of_birth: '), input('gender: '), input('ranking: '))
-
-            Player.save(new_player)
