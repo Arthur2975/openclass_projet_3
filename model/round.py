@@ -40,13 +40,8 @@ class Round:
 
         return matchs_first_round
 
-    def round():
-        # get db
-        table_player = db.table('players')
-        all_players = table_player.all()
-
-        # deserialize players
-        list_player = play.Player.deserialize_players(all_players)
+    def round(self, list_player):
+        '''docstring'''
 
         # sort player by scores
         sorted_players = Round.sort_list(list_player)
@@ -58,12 +53,10 @@ class Round:
         for player in sorted_players:
             # verify the match weren't allready generated
             if len(players_with_match) == len(list_player):
-                print('matchs over')
                 print('--------------------')
-                print('Next round')
                 break
             else:
-                # verify the player hasn't got a match allready
+                # verify the player has no match allready
                 if player in players_with_match:
                     continue
                 else:
@@ -86,17 +79,11 @@ class Round:
 
         return match_list
 
-    def all_rounds(round_index):
-        if round_index == 1:
-            return Round.first_rnd()
-        else:
-            return Round.round()
-
     def save(self):
-        serialized_match = {'name': self.name, 'date': self.date,
+        serialized_round = {'name': self.name, 'date': self.date,
                             'time': self.time, 'match_list': self.match_list}
         round_table = db.table('rounds')
-        round_table.insert(serialized_match)
+        round_table.insert(serialized_round)
 
     def load(self):
         pass

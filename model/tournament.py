@@ -27,7 +27,7 @@ class Tournament:
         '''This method serialize an instance of tournament and save it into a json file'''
 
         serialized_tournament = {'name': self.name,
-                                 'place': self.place, 'date': self.date,
+                                 'place': self.place, 'date': self.date, 'players': self.players,
                                  'rounds': self.rounds, 'number_of_tours': self.number_of_tours, }
         tournaments_table = db.table('tournaments')
         tournaments_table.insert(serialized_tournament)
@@ -36,5 +36,6 @@ class Tournament:
         tournament_table = db.table('tournaments')
         tournament_dict = tournament_table.all()
         tournament = tournament_dict[int(tournament_number)]
-        tour = Tournament(name=tournament['name'], place=tournament['place'], date=tournament['place'])
+        tour = Tournament(name=tournament['name'], place=tournament['place'],
+                          date=tournament['place'], players=tournament['players'], rounds=tournament['rounds'])
         return tour

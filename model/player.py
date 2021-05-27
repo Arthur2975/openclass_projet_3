@@ -37,8 +37,6 @@ class Player:
                 player['gender'], player['ranking'], player['score'], player['opponents']))
         return deserialized_list
 
-    # get player's infos
-
     def get_score(self):
         return self.score
 
@@ -54,8 +52,15 @@ class Player:
     def get_opponents(self):
         return self.opponents_name
 
-    def check_max_player():
-        players_table = db.table('players')
-        players = players_table.all()
-        if len(players) == 8:
+    def check_max_player(list_of_players):
+        if len(list_of_players) == 8:
             return True
+
+    def load_player(name):
+        player_table = db.table('players')
+        players = player_table.all()
+        for player in players:
+            if player['name'] == str(name):
+                target = Player(name=player['name'], firstname=player['firstname'], date_of_birth=player['date_of_birth'],
+                                gender=player['gender'], ranking=player['ranking'], score=player['score'], opponents=player['opponents'])
+                return target

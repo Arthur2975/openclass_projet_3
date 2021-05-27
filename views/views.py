@@ -1,6 +1,7 @@
 from tinydb import TinyDB
 from model.tournament import Tournament
 from model.player import Player
+from model.round import Round
 
 db = TinyDB('chess.json')
 
@@ -15,22 +16,27 @@ class Views:
             print('Press 1: To create a new tournament')
             print('Press 2: To load an existing tournament')
             user_answer = input('Enter your choice: ')
-
             try:
                 return int(user_answer)
             except:
                 user_answer = 0
 
+    def propose_to_load_tour():
+        tournament = Tournament.load_tournament(input('tournament number: '))
+        print('---------------------------------------')
+        print('Tournament loaded')
+        print('---------------------------------------')
+        return tournament
+
     def print_main_menu():
         user_answer = 0
-        while user_answer not in (1, 2, 3, 4, 5, 9):
+        while user_answer not in (1, 2, 3, 9):
             print('----')
             print('MENU')
             print('----')
             print('Press 1: To create a new player')
             print('Press 2: To create match')
-            print('Press 3: Erase tournaments or players')
-            print('Press 4: To get reports')
+            print('Press 3: To get reports')
             print('Press 9: To exit')
             user_answer = input('Enter your choice: ')
             try:
@@ -47,11 +53,15 @@ class Views:
             'date_of_birth: '), gender=input('gender: '), ranking=input('ranking: '))
         return player
 
+    def players_full():
+        print('------------------------------')
+        print('Nombre de joueurs max atteint')
+
     def reports():
         print('Press 1 to view all actors')
         print('Press 2 to view all players')
         print('Press 3 to view all tournaments')
-        print('Press 4 to view all tournee')
+        print('Press 4 to view all rounds')
         print('Press 5 to view all match')
         user_answer = input('Enter your choice: ')
 
@@ -74,9 +84,13 @@ class Views:
         while user_answer not in (0, 0.5, 1):
             print('------------------------------------')
             print('please enter ' + str(player_name) + ' score: ')
-            user_answer = float(input(
-                '0 for a loss, 0.5 for a spare, 1 for a win' + '\n' + 'Enter here: '))
-        return user_answer
+            try:
+                user_answer = float(input(
+                    '0 for a loss, 0.5 for a spare, 1 for a win' + '\n' + 'Enter here: '))
+                return user_answer
+            except:
+                user_answer = 3
+                return user_answer
 
     def propose_to_erase():
         print('Press 1: To erase the tournament infos')
@@ -90,3 +104,17 @@ class Views:
         print('Press 2: No')
         user_answer = input('Enter your choice: ')
         return int(user_answer)
+
+    def tournament_saved():
+        print('tournament saved, good bye')
+
+    def create_round():
+        round = Round(name=input('round_name (1,2,3,4): '), date=input('round_date: '), time=input('round_time'))
+        return round
+
+    def goodbye():
+        print('Good bye')
+
+    def all_rounds_played():
+        print('__________________________')
+        print('all rounds allready played')

@@ -1,242 +1,182 @@
 {
     "players": {
-        "1": {
-            "name": "rob",
+        "9": {
+            "name": "a",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
             "ranking": "1",
-            "score": 12.0,
+            "score": 1.0,
             "opponents": [
-                "trouduc",
-                "teo",
-                "cloe",
-                "victor",
-                "trouduc",
-                "trouduc",
-                "trouduc",
-                "trouduc",
-                "trouduc",
-                "trouduc",
-                "trouduc",
-                "trouduc"
+                "z"
             ]
         },
-        "2": {
-            "name": "trouduc",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+        "10": {
+            "name": "z",
+            "firstname": "z",
+            "date_of_birth": "z",
+            "gender": "z",
+            "ranking": "2",
+            "score": 0.0,
+            "opponents": [
+                "a"
+            ]
+        },
+        "11": {
+            "name": "e",
+            "firstname": "e",
+            "date_of_birth": "e",
+            "gender": "e",
+            "ranking": "3",
+            "score": 1.0,
+            "opponents": [
+                "r"
+            ]
+        },
+        "12": {
+            "name": "r",
+            "firstname": "r",
+            "date_of_birth": "r",
+            "gender": "r",
+            "ranking": "4",
+            "score": 0.0,
+            "opponents": [
+                "e"
+            ]
+        },
+        "13": {
+            "name": "q",
+            "firstname": "q",
+            "date_of_birth": "q",
+            "gender": "q",
             "ranking": "5",
             "score": 1.0,
             "opponents": [
-                "rob",
-                "cloe",
-                "herve",
-                "zgeg",
-                "rob",
-                "rob",
-                "rob",
-                "rob",
-                "rob",
-                "rob",
-                "rob",
-                "rob"
+                "s"
             ]
         },
-        "3": {
-            "name": "teo",
+        "14": {
+            "name": "s",
+            "firstname": "s",
+            "date_of_birth": "s",
+            "gender": "s",
+            "ranking": "6",
+            "score": 0.0,
+            "opponents": [
+                "q"
+            ]
+        },
+        "15": {
+            "name": "w",
+            "firstname": "w",
+            "date_of_birth": "w",
+            "gender": "w",
+            "ranking": "7",
+            "score": 1.0,
+            "opponents": [
+                "x"
+            ]
+        },
+        "16": {
+            "name": "x",
+            "firstname": "x",
+            "date_of_birth": "x",
+            "gender": "x",
+            "ranking": "8",
+            "score": 0.0,
+            "opponents": [
+                "w"
+            ]
+        },
+        "17": {
+            "name": "alain",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "1",
+            "score": 0,
+            "opponents": []
+        },
+        "18": {
+            "name": "a",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
             "ranking": "2",
-            "score": 9.0,
-            "opponents": [
-                "bernard",
-                "rob",
-                "victor",
-                "cloe",
-                "bernard",
-                "bernard",
-                "bernard",
-                "bernard",
-                "bernard",
-                "bernard",
-                "bernard",
-                "bernard"
-            ]
+            "score": 0,
+            "opponents": []
         },
-        "4": {
-            "name": "bernard",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "6",
-            "score": 1.0,
-            "opponents": [
-                "teo",
-                "victor",
-                "zgeg",
-                "herve",
-                "teo",
-                "teo",
-                "teo",
-                "teo",
-                "teo",
-                "teo",
-                "teo",
-                "teo"
-            ]
-        },
-        "5": {
-            "name": "cloe",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+        "19": {
+            "name": "q",
+            "firstname": "q",
+            "date_of_birth": "q",
+            "gender": "q",
             "ranking": "3",
-            "score": 11.0,
-            "opponents": [
-                "herve",
-                "trouduc",
-                "rob",
-                "teo",
-                "herve",
-                "herve",
-                "herve",
-                "herve",
-                "herve",
-                "herve",
-                "herve",
-                "herve"
-            ]
+            "score": 0,
+            "opponents": []
         },
-        "6": {
-            "name": "herve",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "7",
-            "score": 3.0,
-            "opponents": [
-                "cloe",
-                "zgeg",
-                "trouduc",
-                "bernard",
-                "cloe",
-                "cloe",
-                "cloe",
-                "cloe",
-                "cloe",
-                "cloe",
-                "cloe",
-                "cloe"
-            ]
-        },
-        "7": {
-            "name": "victor",
+        "20": {
+            "name": "gege",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
             "ranking": "4",
-            "score": 11.0,
-            "opponents": [
-                "zgeg",
-                "bernard",
-                "teo",
-                "rob",
-                "zgeg",
-                "zgeg",
-                "zgeg",
-                "zgeg",
-                "zgeg",
-                "zgeg",
-                "zgeg",
-                "zgeg"
-            ]
+            "score": 0,
+            "opponents": []
         },
-        "8": {
-            "name": "zgeg",
+        "21": {
+            "name": "hrrve",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "5",
+            "score": 0,
+            "opponents": []
+        },
+        "22": {
+            "name": "bruno",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "6",
+            "score": 0,
+            "opponents": []
+        },
+        "23": {
+            "name": "noe",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "7",
+            "score": 0,
+            "opponents": []
+        },
+        "24": {
+            "name": "pla",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
             "ranking": "8",
-            "score": 0.0,
-            "opponents": [
-                "victor",
-                "herve",
-                "bernard",
-                "trouduc",
-                "victor",
-                "victor",
-                "victor",
-                "victor",
-                "victor",
-                "victor",
-                "victor",
-                "victor"
-            ]
-        }
-    },
-    "tournaments": {
-        "1": {
-            "name": "chess",
-            "place": "a",
-            "date": "a",
-            "rounds": [],
-            "number_of_tours": 4
+            "score": 0,
+            "opponents": []
         },
-        "2": {
-            "name": "chess",
-            "place": "a",
-            "date": "a",
-            "rounds": [],
-            "number_of_tours": 4
+        "25": {
+            "name": "roger",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "2",
+            "score": 0,
+            "opponents": []
         },
-        "3": {
-            "name": "chess",
-            "place": "a",
-            "date": "a",
-            "rounds": [
-                "1"
-            ],
-            "number_of_tours": 4
-        },
-        "4": {
-            "name": "chess",
-            "place": "a",
-            "date": "a",
-            "rounds": [
-                "1"
-            ],
-            "number_of_tours": 4
-        },
-        "5": {
-            "name": "chess",
-            "place": "a",
-            "date": "a",
-            "rounds": [
-                "1",
-                "4"
-            ],
-            "number_of_tours": 4
-        },
-        "6": {
-            "name": "chess",
-            "place": "a",
-            "date": "a",
-            "rounds": [
-                "4"
-            ],
-            "number_of_tours": 4
-        },
-        "7": {
-            "name": "chess",
-            "place": "a",
-            "date": "a",
-            "rounds": [
-                "4"
-            ],
-            "number_of_tours": 4
+        "26": {
+            "name": "rger",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "2",
+            "score": 0,
+            "opponents": []
         }
     },
     "rounds": {
@@ -245,68 +185,78 @@
             "date": "1",
             "time": "1",
             "match_list": [
-                "rob",
-                "trouduc",
-                "teo",
-                "bernard",
-                "cloe",
-                "herve",
-                "victor",
-                "zgeg"
+                [
+                    [
+                        "a",
+                        1.0
+                    ],
+                    [
+                        "z",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "e",
+                        1.0
+                    ],
+                    [
+                        "r",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "q",
+                        1.0
+                    ],
+                    [
+                        "s",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "w",
+                        1.0
+                    ],
+                    [
+                        "x",
+                        0.0
+                    ]
+                ]
             ]
+        }
+    },
+    "tournaments": {
+        "1": {
+            "name": "chess tour",
+            "place": "n",
+            "date": "a",
+            "players": [],
+            "rounds": [],
+            "number_of_tours": 4
         },
         "2": {
-            "name": "1",
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                "rob",
-                "trouduc",
-                "teo",
-                "bernard",
-                "cloe",
-                "herve",
-                "victor",
-                "zgeg"
-            ]
+            "name": "chess tour",
+            "place": "n",
+            "date": "n",
+            "players": [
+                "alain"
+            ],
+            "rounds": [],
+            "number_of_tours": 4
         },
         "3": {
-            "name": "4",
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                "rob",
-                "trouduc",
-                "teo",
-                "bernard",
-                "cloe",
-                "herve",
-                "victor",
-                "zgeg",
-                "rob",
-                "trouduc",
-                "teo",
-                "bernard",
-                "cloe",
-                "herve",
-                "victor",
-                "zgeg"
-            ]
-        },
-        "4": {
-            "name": "4",
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                "rob",
-                "trouduc",
-                "teo",
-                "bernard",
-                "cloe",
-                "herve",
-                "victor",
-                "zgeg"
-            ]
+            "name": "chess tour",
+            "place": "n",
+            "date": "n",
+            "players": [
+                "alain",
+                "rger"
+            ],
+            "rounds": [],
+            "number_of_tours": 4
         }
     }
 }

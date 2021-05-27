@@ -16,96 +16,98 @@ class Controller:
 
     def menu(self):
         '''docstring'''
+        # create or load tour
+        list_of_players = []
         if self.tournament == "":
             user_answer = Views.print_create_or_load()
             if user_answer == 1:
                 self.tournament = Views.create_new_tournament()
             elif user_answer == 2:
-                self.tournament = Tournament.load_tournament(input('tournament number: '))
-                print('---------------------------------------')
-                print('Tournament loaded: ' + self.tournament.name)
-                print('---------------------------------------')
+                self.tournament = Views.propose_to_load_tour()
             else:
                 Views.print_create_or_load()
-
+            # load players
+            if len(self.tournament.players) != 0:
+                players_names = self.tournament.players
+                for player in players_names:
+                    list_of_players.append(Player.load_player(player))
+        # create players
         user_answer = Views.print_main_menu()
         if user_answer == 1:
-            if Player.check_max_player():
-                print('------------------------------')
-                print('Nombre de joueurs max atteint')
+            if Player.check_max_player(self.tournament.players):
+                Views.players_full()
             else:
                 player = Views.create_new_player()
                 player.save()
+                self.tournament.players.append(player.name)
             self.menu()
+
+        # generate rounds
         elif user_answer == 2:
             self.generate_rounds()
             self.menu()
+        # reports
         elif user_answer == 3:
-            self.erase_db()
+            self.generate_reports(list_of_players)
             self.menu()
-        elif user_answer == 4:
-            self.generate_reports()
-            self.menu()
+        # exit
         elif user_answer == 9:
             answer = Views.exit()
             if answer == 1:
                 self.tournament.save()
-                print('tournament saved, good bye')
+                Views.tournament_saved()
                 exit(0)
             if answer == 2:
-                print('good bye!')
+                Views.goodbye()
                 exit(0)
         else:
-            self.main_menu()
+            self.menu()
 
-    def generate_rounds(self):
+    def generate_rounds(self, list_of_players):
         '''docstrings'''
-        # generate rounds
-        round = Round(name=input('round_name: '), date=input('round_date: '), time=input('round_time'))
-        tournament_table = db.table('tournaments')
-        db_tournament = tournament_table.all()
-        tournament = Tournament(
-            name=db_tournament[0]['name'], place=db_tournament[0]['place'], date=db_tournament[0]['date'])
-        round_index = 1
-        if len(self.tournament.rounds) < int(tournament.number_of_tours):
-            # generate the first rnd
-            list_of_matchs = Round.all_rounds(round_index)
-            list_of_players = []
-            for match in list_of_matchs:
-                for player in match:
-                    list_of_players.append(player)
-            # show generated matchs
-            Views.show_match(list_of_matchs)
-            # enter scores
-            for match in list_of_matchs:
-                for player in match:
-                    score = Views.propose_to_enter_scores(player.name)
-                    Player.set_score(
-                        player, score)
-            # add opponent
-            for match in list_of_matchs:
-                Player.add_opponents(match[0], match[1])
-                Player.add_opponents(match[1], match[0])
-            # update players
-            player_table = db.table('players')
-            player_table.truncate()
-            for player in list_of_players:
-                Player.save(player)
-            round_index += 1
-            # update round
-            for match in list_of_matchs:
-                for player in match:
-                    round.match_list.append(player.name)
-            round.save()
-            # update rounds in tournament
-            tournament.rounds.append(round.name)
-            tournament.save()
+        # create the round
+        round = Views.create_round()
+        # generate the round
+        if round.name == 1:
+            list_of_matchs = round.first_rnd(list_of_players)
+        elif int(round.name) <= int(self.tournament.number_of_tours):
+            list_of_matchs = round.round(list_of_players)
+        elif int(round.name) > int(self.tournament.number_of_tours):
+            Views.all_rounds_played()
+            return
 
-        else:
-            print('all rounds allready played')
+        list_of_players = []
+        for match in list_of_matchs:
+            for player in match:
+                list_of_players.append(player)
+                # append players to tournament
+                self.tournament.players.append(player)
+        # show generated matchs
+        Views.show_match(list_of_matchs)
+        # enter scores
+        for match in list_of_matchs:
+            score_1 = Views.propose_to_enter_scores(match[0].name)
+            match[0].set_score(score_1)
+            score_2 = Views.propose_to_enter_scores(match[1].name)
+            match[1].set_score(score_2)
+            # update matchs and scores in round
+            round.match_list.append([(match[0].name, score_1), (match[1].name, score_2)])
+        round.save()
+        # add opponent
+        for match in list_of_matchs:
+            Player.add_opponents(match[0], match[1])
+            Player.add_opponents(match[1], match[0])
+        # update players
+        player_table = db.table('players')
+        player_table.truncate()
+        for player in list_of_players:
+            player.save()
+        # update rounds in tournament
+        self.tournament.rounds.append(round.name)
+        # update players in tournament
 
         # final phrase and results
-        if int(round.name) == int(tournament.number_of_tours):
+        if int(round.name) == int(self.tournament.number_of_tours):
             Views.print_final_scores(list_of_players)
 
     def generate_reports(self):
@@ -119,7 +121,7 @@ class Controller:
         elif user_answer == 3:
             report.report_all_tournaments()
         elif user_answer == 4:
-            report.report_all_tournee()
+            report.report_all_rounds()
         elif user_answer == 5:
             report.report_all_match()
 
@@ -132,6 +134,10 @@ class Controller:
             players_table = db.table('players')
             players_table.truncate()
 
-    def main(self):
-        tournoi = self.create_or_load()
-        self.menu()
+
+# ya pas les jouerus dans le tournoi de la bd
+# ya une couille dans les match list des round dans bd
+
+# linker tournoi joueur
+# rapports
+# oral
