@@ -1,95 +1,7 @@
 {
     "players": {
-        "9": {
-            "name": "a",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "1",
-            "score": 1.0,
-            "opponents": [
-                "z"
-            ]
-        },
-        "10": {
-            "name": "z",
-            "firstname": "z",
-            "date_of_birth": "z",
-            "gender": "z",
-            "ranking": "2",
-            "score": 0.0,
-            "opponents": [
-                "a"
-            ]
-        },
-        "11": {
-            "name": "e",
-            "firstname": "e",
-            "date_of_birth": "e",
-            "gender": "e",
-            "ranking": "3",
-            "score": 1.0,
-            "opponents": [
-                "r"
-            ]
-        },
-        "12": {
-            "name": "r",
-            "firstname": "r",
-            "date_of_birth": "r",
-            "gender": "r",
-            "ranking": "4",
-            "score": 0.0,
-            "opponents": [
-                "e"
-            ]
-        },
-        "13": {
-            "name": "q",
-            "firstname": "q",
-            "date_of_birth": "q",
-            "gender": "q",
-            "ranking": "5",
-            "score": 1.0,
-            "opponents": [
-                "s"
-            ]
-        },
-        "14": {
-            "name": "s",
-            "firstname": "s",
-            "date_of_birth": "s",
-            "gender": "s",
-            "ranking": "6",
-            "score": 0.0,
-            "opponents": [
-                "q"
-            ]
-        },
-        "15": {
-            "name": "w",
-            "firstname": "w",
-            "date_of_birth": "w",
-            "gender": "w",
-            "ranking": "7",
-            "score": 1.0,
-            "opponents": [
-                "x"
-            ]
-        },
-        "16": {
-            "name": "x",
-            "firstname": "x",
-            "date_of_birth": "x",
-            "gender": "x",
-            "ranking": "8",
-            "score": 0.0,
-            "opponents": [
-                "w"
-            ]
-        },
-        "17": {
-            "name": "alain",
+        "1": {
+            "name": "arhtur",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
@@ -97,8 +9,8 @@
             "score": 0,
             "opponents": []
         },
-        "18": {
-            "name": "a",
+        "2": {
+            "name": "bebe",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
@@ -106,26 +18,26 @@
             "score": 0,
             "opponents": []
         },
-        "19": {
-            "name": "q",
-            "firstname": "q",
-            "date_of_birth": "q",
-            "gender": "q",
-            "ranking": "3",
-            "score": 0,
-            "opponents": []
-        },
-        "20": {
+        "3": {
             "name": "gege",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
+            "ranking": "3",
+            "score": 0,
+            "opponents": []
+        },
+        "4": {
+            "name": "dede",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
             "ranking": "4",
             "score": 0,
             "opponents": []
         },
-        "21": {
-            "name": "hrrve",
+        "5": {
+            "name": "cece",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
@@ -133,17 +45,17 @@
             "score": 0,
             "opponents": []
         },
-        "22": {
-            "name": "bruno",
-            "firstname": "a",
+        "6": {
+            "name": "rere",
+            "firstname": "1",
             "date_of_birth": "a",
             "gender": "a",
             "ranking": "6",
             "score": 0,
             "opponents": []
         },
-        "23": {
-            "name": "noe",
+        "7": {
+            "name": "jeje",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
@@ -151,32 +63,52 @@
             "score": 0,
             "opponents": []
         },
-        "24": {
-            "name": "pla",
+        "8": {
+            "name": "lele",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
             "ranking": "8",
             "score": 0,
             "opponents": []
+        }
+    },
+    "tournaments": {
+        "1": {
+            "name": "chess tour",
+            "place": "a",
+            "date": "a",
+            "players": [
+                "arhtur",
+                "bebe",
+                "gege",
+                "dede",
+                "cece",
+                "rere",
+                "jeje",
+                "lele"
+            ],
+            "rounds": [],
+            "number_of_tours": 4
         },
-        "25": {
-            "name": "roger",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "2",
-            "score": 0,
-            "opponents": []
-        },
-        "26": {
-            "name": "rger",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "2",
-            "score": 0,
-            "opponents": []
+        "2": {
+            "name": "chess tour",
+            "place": "a",
+            "date": "a",
+            "players": [
+                "arhtur",
+                "bebe",
+                "gege",
+                "dede",
+                "cece",
+                "rere",
+                "jeje",
+                "lele"
+            ],
+            "rounds": [
+                "1"
+            ],
+            "number_of_tours": 4
         }
     },
     "rounds": {
@@ -187,76 +119,45 @@
             "match_list": [
                 [
                     [
-                        "a",
+                        "arhtur",
                         1.0
                     ],
                     [
-                        "z",
+                        "cece",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "e",
+                        "bebe",
                         1.0
                     ],
                     [
-                        "r",
+                        "rere",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "q",
+                        "gege",
                         1.0
                     ],
                     [
-                        "s",
+                        "jeje",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "w",
+                        "dede",
                         1.0
                     ],
                     [
-                        "x",
+                        "lele",
                         0.0
                     ]
                 ]
             ]
-        }
-    },
-    "tournaments": {
-        "1": {
-            "name": "chess tour",
-            "place": "n",
-            "date": "a",
-            "players": [],
-            "rounds": [],
-            "number_of_tours": 4
-        },
-        "2": {
-            "name": "chess tour",
-            "place": "n",
-            "date": "n",
-            "players": [
-                "alain"
-            ],
-            "rounds": [],
-            "number_of_tours": 4
-        },
-        "3": {
-            "name": "chess tour",
-            "place": "n",
-            "date": "n",
-            "players": [
-                "alain",
-                "rger"
-            ],
-            "rounds": [],
-            "number_of_tours": 4
         }
     }
 }

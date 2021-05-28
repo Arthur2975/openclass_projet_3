@@ -53,6 +53,10 @@ class Views:
             'date_of_birth: '), gender=input('gender: '), ranking=input('ranking: '))
         return player
 
+    def not_enough_players():
+        print('------------------------------------')
+        print('Not enough players to start a round')
+
     def players_full():
         print('------------------------------')
         print('Nombre de joueurs max atteint')
@@ -90,7 +94,6 @@ class Views:
                 return user_answer
             except:
                 user_answer = 3
-                return user_answer
 
     def propose_to_erase():
         print('Press 1: To erase the tournament infos')

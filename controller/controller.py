@@ -39,16 +39,21 @@ class Controller:
             else:
                 player = Views.create_new_player()
                 player.save()
+                list_of_players.append(player)
                 self.tournament.players.append(player.name)
             self.menu()
 
         # generate rounds
         elif user_answer == 2:
-            self.generate_rounds()
-            self.menu()
+            if len(self.tournament.players) == int(self.tournament.number_of_players):
+                self.generate_rounds(list_of_players)
+                self.menu()
+            else:
+                Views.not_enough_players()
+                self.menu()
         # reports
         elif user_answer == 3:
-            self.generate_reports(list_of_players)
+            self.generate_reports()
             self.menu()
         # exit
         elif user_answer == 9:
@@ -68,20 +73,13 @@ class Controller:
         # create the round
         round = Views.create_round()
         # generate the round
-        if round.name == 1:
+        if int(round.name) == 1:
             list_of_matchs = round.first_rnd(list_of_players)
-        elif int(round.name) <= int(self.tournament.number_of_tours):
+        elif int(round.name) > 1 and int(round.name) <= int(self.tournament.number_of_tours):
             list_of_matchs = round.round(list_of_players)
-        elif int(round.name) > int(self.tournament.number_of_tours):
+        else:
             Views.all_rounds_played()
             return
-
-        list_of_players = []
-        for match in list_of_matchs:
-            for player in match:
-                list_of_players.append(player)
-                # append players to tournament
-                self.tournament.players.append(player)
         # show generated matchs
         Views.show_match(list_of_matchs)
         # enter scores
@@ -97,15 +95,8 @@ class Controller:
         for match in list_of_matchs:
             Player.add_opponents(match[0], match[1])
             Player.add_opponents(match[1], match[0])
-        # update players
-        player_table = db.table('players')
-        player_table.truncate()
-        for player in list_of_players:
-            player.save()
         # update rounds in tournament
         self.tournament.rounds.append(round.name)
-        # update players in tournament
-
         # final phrase and results
         if int(round.name) == int(self.tournament.number_of_tours):
             Views.print_final_scores(list_of_players)
@@ -135,9 +126,5 @@ class Controller:
             players_table.truncate()
 
 
-# ya pas les jouerus dans le tournoi de la bd
-# ya une couille dans les match list des round dans bd
-
-# linker tournoi joueur
 # rapports
 # oral

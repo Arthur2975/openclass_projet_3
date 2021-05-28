@@ -18,12 +18,9 @@ class Round:
     def sort_list(list):
         return sorted(list, key=operator.attrgetter("score"), reverse=True)
 
-    def first_rnd():
+    def first_rnd(self, list_of_players):
         '''docstring'''
-        player_table = db.table('players')
-        all_players = player_table.all()
 
-        list_of_players = play.Player.deserialize_players(all_players)
         sorted_players = sorted(
             list_of_players, key=lambda player: player.ranking)
 
