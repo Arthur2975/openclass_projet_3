@@ -1,8 +1,6 @@
 from tinydb import TinyDB
-from model.tournament import Tournament
+from operator import itemgetter
 from views.views import Views
-from model.round import Round
-from model.player import Player
 
 db = TinyDB('chess.json')
 
@@ -16,15 +14,45 @@ class Report:
     def report_all_actors(self):
         actors_table = db.table('players')
         all_actors = actors_table.all()
-        print(all_actors)
+        user_answer = Views.sorted_report()
+        if user_answer == 1:
+            sorted_actors = sorted(all_actors, key=itemgetter('name'), )
+            for actor in sorted_actors:
+                print('name: ' + str(actor['name']) + ' Firstname: ' +
+                      str(actor['firstname']) + ' ranking: ' + str(actor['ranking']))
+
+        elif user_answer == 2:
+            sorted_actors = sorted(all_actors, key=itemgetter('ranking'), )
+            for actor in sorted_actors:
+                print('name: ' + str(actor['name']) + ' Firstname: ' +
+                      str(actor['firstname']) + ' ranking: ' + str(actor['ranking']))
 
     def report_all_players(self):
         players_table = db.table('players')
         all_players = players_table.all()
-        for player in all_players:
-            print('--------------------------------------------')
-            print('name: ' + str(player['name']) + ', firstname: ' +
-                  str(player['firstname']) + ', ranking: ' + str(player['ranking']))
+        tournament_table = db.table('tournaments')
+        all_tournament = tournament_table.all()
+        index = Views.indice_of_tournament()
+        # use index to choose the right dico
+        tournament = all_tournament[int(index)]
+        players = []
+        for player in tournament['players']:
+            for play in all_players:
+                if str(player) == str(play['name']):
+                    players.append(play)
+
+        user_answer = Views.sorted_report()
+        if user_answer == 1:
+            sorted_actors = sorted(players, key=itemgetter('name'), )
+            for actor in sorted_actors:
+                print('name: ' + str(actor['name']) + ' Firstname: ' +
+                      str(actor['firstname']) + ' ranking: ' + str(actor['ranking']))
+
+        elif user_answer == 2:
+            sorted_actors = sorted(players, key=itemgetter('ranking'), )
+            for actor in sorted_actors:
+                print('name: ' + str(actor['name']) + ' Firstname: ' +
+                      str(actor['firstname']) + ' ranking: ' + str(actor['ranking']))
 
     def report_all_tournaments(self):
         tournaments_table = db.table('tournaments')

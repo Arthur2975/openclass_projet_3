@@ -1,5 +1,4 @@
 from tinydb import TinyDB
-from model import player as play
 import operator
 
 db = TinyDB('chess.json')

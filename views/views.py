@@ -59,9 +59,10 @@ class Views:
 
     def players_full():
         print('------------------------------')
-        print('Nombre de joueurs max atteint')
+        print('Too many players for this tournament')
 
     def reports():
+        print('--------------------------')
         print('Press 1 to view all actors')
         print('Press 2 to view all players')
         print('Press 3 to view all tournaments')
@@ -112,7 +113,17 @@ class Views:
         print('tournament saved, good bye')
 
     def create_round():
-        round = Round(name=input('round_name (1,2,3,4): '), date=input('round_date: '), time=input('round_time'))
+        while True:
+            try:
+                name = int(input('Enter the round number (1, 2, 3, 4): '))
+                date = input('round_date: ')
+                time = input('round_time')
+                break
+
+            except:
+                print('Error in the entries')
+
+        round = Round(name=name, date=date, time=time)
         return round
 
     def goodbye():
@@ -121,3 +132,27 @@ class Views:
     def all_rounds_played():
         print('__________________________')
         print('all rounds allready played')
+
+    def sorted_report():
+        user_answer = 0
+        while user_answer not in (1, 2):
+            print('Sorted by name, press 1: ')
+            print('sorted by ranking, press 2: ')
+            user_answer = input('enter your choice here: ')
+
+            try:
+                return int(user_answer)
+            except:
+                user_answer = 0
+
+    def indice_of_tournament():
+        while True:
+            user_answer = input('what is the indice of the tournament for which you wanna see the players?')
+            tournament_table = db.table('tournaments')
+            all_tournaments = tournament_table.all()
+            try:
+                all_tournaments[int(user_answer)]
+                return user_answer
+            except:
+                print('wrong indice, please try again')
+                user_answer = False

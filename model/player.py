@@ -61,6 +61,8 @@ class Player:
         players = player_table.all()
         for player in players:
             if player['name'] == str(name):
-                target = Player(name=player['name'], firstname=player['firstname'], date_of_birth=player['date_of_birth'],
-                                gender=player['gender'], ranking=player['ranking'], score=player['score'], opponents=player['opponents'])
+                target = Player(name=player['name'], firstname=player['firstname'],
+                                date_of_birth=player['date_of_birth'],
+                                gender=player['gender'], ranking=player['ranking'],
+                                score=player['score'], opponents=player['opponents'])
                 return target

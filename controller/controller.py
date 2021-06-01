@@ -1,7 +1,5 @@
-from tinydb import TinyDB
-from model.tournament import Tournament
+from tinydb import TinyDB, Query
 from views.views import Views
-from model.round import Round
 from model.player import Player
 from model.reports import Report
 
@@ -15,50 +13,76 @@ class Controller:
         self.tournament = tournament
 
     def menu(self):
-        '''docstring'''
+        '''Main menu of the program, makes the link between 
+        the views and the models to allow the user access 
+        every fonctionality of the application'''
         # create or load tour
-        list_of_players = []
         if self.tournament == "":
             user_answer = Views.print_create_or_load()
+            # if user wants to create tour
             if user_answer == 1:
                 self.tournament = Views.create_new_tournament()
+            # if user wants to load a tour
             elif user_answer == 2:
                 self.tournament = Views.propose_to_load_tour()
+            # other answer
             else:
                 Views.print_create_or_load()
-            # load players
+            # load players if players that allready are in the loaded tour
             if len(self.tournament.players) != 0:
-                players_names = self.tournament.players
-                for player in players_names:
-                    list_of_players.append(Player.load_player(player))
+                for player in self.tournament.players:
+                    self.tournament.players_i.append(Player.load_player(player))
+
         # create players
         user_answer = Views.print_main_menu()
         if user_answer == 1:
+            # check if there is too many players
             if Player.check_max_player(self.tournament.players):
                 Views.players_full()
+            # create the player
             else:
                 player = Views.create_new_player()
-                player.save()
-                list_of_players.append(player)
+                # add to the list of players
+                self.tournament.players_i.append(player)
+                # add to the tour instance
                 self.tournament.players.append(player.name)
             self.menu()
 
         # generate rounds
         elif user_answer == 2:
+            # check if there is enough players
             if len(self.tournament.players) == int(self.tournament.number_of_players):
-                self.generate_rounds(list_of_players)
+                # generate the round with the list of players
+                self.generate_rounds(self.tournament.players_i)
                 self.menu()
+            # if not enough players return an alert
             else:
                 Views.not_enough_players()
                 self.menu()
-        # reports
+
+        # go to the reports menu
         elif user_answer == 3:
             self.generate_reports()
             self.menu()
         # exit
         elif user_answer == 9:
             answer = Views.exit()
+            # if wants to save
             if answer == 1:
+                # erase the players in the db
+                # save the players in list of players
+                players_table = db.table('players')
+                play = Query()
+                for player in self.tournament.players_i:
+                    players_table.remove(play.name == player.name)
+                    player.save()
+                # erase list of player instances to save
+                self.tournament.players_i = []
+                # erase the tournaments in the db
+                tournament_table = db.table('tournaments')
+                tour = Query()
+                tournament_table.remove(tour.name == self.tournament.name)
+                # save the tour
                 self.tournament.save()
                 Views.tournament_saved()
                 exit(0)
@@ -69,14 +93,20 @@ class Controller:
             self.menu()
 
     def generate_rounds(self, list_of_players):
-        '''docstrings'''
+        '''Makes the link between the round model and the views 
+        in order to generate the rounds and pair the players'''
         # create the round
         round = Views.create_round()
-        # generate the round
+        # initialize match list because python keep in memory the last match list in the instance round
+        round.match_list = []
+        # generate the round and return the list of matchs
+        # if it is the first round, lauch first round algorithm
         if int(round.name) == 1:
             list_of_matchs = round.first_rnd(list_of_players)
+        # if it is a round other than the first one
         elif int(round.name) > 1 and int(round.name) <= int(self.tournament.number_of_tours):
             list_of_matchs = round.round(list_of_players)
+        # if the number of rounds is exceeded
         else:
             Views.all_rounds_played()
             return
@@ -84,20 +114,30 @@ class Controller:
         Views.show_match(list_of_matchs)
         # enter scores
         for match in list_of_matchs:
+            # enter player's score for each match
             score_1 = Views.propose_to_enter_scores(match[0].name)
+            # set the score in the player instance
             match[0].set_score(score_1)
+            # same procedure for the second player of the match
             score_2 = Views.propose_to_enter_scores(match[1].name)
             match[1].set_score(score_2)
-            # update matchs and scores in round
+            # update in round, each match and scores
             round.match_list.append([(match[0].name, score_1), (match[1].name, score_2)])
+        # save the round in the db
         round.save()
-        # add opponent
+        # add opponent in each player instance
         for match in list_of_matchs:
             Player.add_opponents(match[0], match[1])
             Player.add_opponents(match[1], match[0])
-        # update rounds in tournament
+        # update players in list of instances in tournament
+        list_play_instances = []
+        for match in list_of_matchs:
+            for player in match:
+                list_play_instances.append(player)
+        self.tournament.players_i = list_play_instances
+        # update rounds list in the tournament instance
         self.tournament.rounds.append(round.name)
-        # final phrase and results
+        # final phrase and results if the round is the last one
         if int(round.name) == int(self.tournament.number_of_tours):
             Views.print_final_scores(list_of_players)
 
@@ -116,15 +156,11 @@ class Controller:
         elif user_answer == 5:
             report.report_all_match()
 
-    def erase_db(self):
-        user_answer = Views.propose_to_erase()
-        if user_answer == 1:
-            tournament_table = db.table('tournaments')
-            tournament_table.truncate()
-        elif user_answer == 2:
-            players_table = db.table('players')
-            players_table.truncate()
-
 
 # rapports
 # oral
+
+# quand on fait creer tournoit et direct les round, sauf pour le round 1 qui marche,
+# les autres rounds retournent l'erreur variable referenced before assignments dans la methode round de class Round
+
+# truc du bareexcept ----> pas capté
