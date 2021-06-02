@@ -18,7 +18,7 @@ class Views:
             user_answer = input('Enter your choice: ')
             try:
                 return int(user_answer)
-            except:
+            except ValueError:
                 user_answer = 0
 
     def propose_to_load_tour():
@@ -41,7 +41,7 @@ class Views:
             user_answer = input('Enter your choice: ')
             try:
                 return int(user_answer)
-            except:
+            except ValueError:
                 user_answer = 0
 
     def create_new_tournament():
@@ -66,8 +66,8 @@ class Views:
         print('Press 1 to view all actors')
         print('Press 2 to view all players')
         print('Press 3 to view all tournaments')
-        print('Press 4 to view all rounds')
-        print('Press 5 to view all match')
+        print('Press 4 to view all rounds of a tournament')
+        print('Press 5 to view all matchs of a tournament')
         user_answer = input('Enter your choice: ')
 
         return int(user_answer)
@@ -93,7 +93,7 @@ class Views:
                 user_answer = float(input(
                     '0 for a loss, 0.5 for a spare, 1 for a win' + '\n' + 'Enter here: '))
                 return user_answer
-            except:
+            except ValueError:
                 user_answer = 3
 
     def propose_to_erase():
@@ -120,7 +120,7 @@ class Views:
                 time = input('round_time')
                 break
 
-            except:
+            except ValueError:
                 print('Error in the entries')
 
         round = Round(name=name, date=date, time=time)
@@ -142,7 +142,7 @@ class Views:
 
             try:
                 return int(user_answer)
-            except:
+            except ValueError:
                 user_answer = 0
 
     def indice_of_tournament():
@@ -153,6 +153,21 @@ class Views:
             try:
                 all_tournaments[int(user_answer)]
                 return user_answer
-            except:
+            except ValueError:
                 print('wrong indice, please try again')
                 user_answer = False
+
+    def which_name_tournament():
+        while True:
+            print('Whats the name of the tournament you want to see the infos?: ')
+            user_answer = input('Enter your choice here: ')
+            tournament_table = db.table('tournaments')
+            all_tournaments = tournament_table.all()
+
+            try:
+                for tournament in all_tournaments:
+                    if tournament['name'] == str(user_answer):
+                        return user_answer
+            except ValueError:
+                print('wrong entries')
+                return False

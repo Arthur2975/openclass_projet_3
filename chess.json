@@ -1,219 +1,245 @@
 {
+    "rounds": {
+        "1": {
+            "name": 1,
+            "date": "1",
+            "time": "1",
+            "match_list": [
+                [
+                    [
+                        "a",
+                        1.0
+                    ],
+                    [
+                        "s",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "q",
+                        1.0
+                    ],
+                    [
+                        "x",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "w",
+                        1.0
+                    ],
+                    [
+                        "e",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "z",
+                        1.0
+                    ],
+                    [
+                        "d",
+                        0.0
+                    ]
+                ]
+            ],
+            "tournament_name": "a"
+        },
+        "2": {
+            "name": 1,
+            "date": "1",
+            "time": "1",
+            "match_list": [
+                [
+                    [
+                        "a",
+                        1.0
+                    ],
+                    [
+                        "w",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "z",
+                        1.0
+                    ],
+                    [
+                        "x",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "q",
+                        1.0
+                    ],
+                    [
+                        "e",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "s",
+                        1.0
+                    ],
+                    [
+                        "d",
+                        0.0
+                    ]
+                ]
+            ],
+            "tournament_name": "chess tour"
+        },
+        "3": {
+            "name": 2,
+            "date": "2",
+            "time": "2",
+            "match_list": [
+                [
+                    [
+                        "a",
+                        1.0
+                    ],
+                    [
+                        "z",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "q",
+                        1.0
+                    ],
+                    [
+                        "w",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "s",
+                        1.0
+                    ],
+                    [
+                        "x",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "e",
+                        1.0
+                    ],
+                    [
+                        "d",
+                        0.0
+                    ]
+                ]
+            ],
+            "tournament_name": "chess tour"
+        }
+    },
     "players": {
-        "25": {
-            "name": "arthur",
-            "firstname": "a",
+        "9": {
+            "name": "a",
+            "firstname": "aa",
             "date_of_birth": "a",
             "gender": "a",
             "ranking": "1",
-            "score": 3.0,
-            "opponents": [
-                "eliott",
-                "robert",
-                "victor"
-            ]
-        },
-        "26": {
-            "name": "victor",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "3",
             "score": 2.0,
             "opponents": [
-                "fred",
-                "rene",
-                "arthur"
+                "w",
+                "z"
             ]
         },
-        "27": {
-            "name": "robert",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "2",
-            "score": 2.0,
-            "opponents": [
-                "colin",
-                "arthur",
-                "rene"
-            ]
-        },
-        "28": {
-            "name": "rene",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "4",
-            "score": 1.0,
-            "opponents": [
-                "stef",
-                "victor",
-                "robert"
-            ]
-        },
-        "29": {
-            "name": "eliott",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "5",
-            "score": 2.0,
-            "opponents": [
-                "arthur",
-                "colin",
-                "fred"
-            ]
-        },
-        "30": {
-            "name": "fred",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "7",
-            "score": 1.0,
-            "opponents": [
-                "victor",
-                "stef",
-                "eliott"
-            ]
-        },
-        "31": {
-            "name": "colin",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "6",
-            "score": 1.0,
-            "opponents": [
-                "robert",
-                "eliott",
-                "stef"
-            ]
-        },
-        "32": {
-            "name": "stef",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "8",
-            "score": 0.0,
-            "opponents": [
-                "rene",
-                "fred",
-                "colin"
-            ]
-        },
-        "49": {
-            "name": "roger",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "1",
-            "score": 4.0,
-            "opponents": [
-                "zeubi",
-                "poulet",
-                "froufrou",
-                "carlito"
-            ]
-        },
-        "50": {
-            "name": "carlito",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "4",
-            "score": 3.0,
-            "opponents": [
-                "salobe",
-                "brout",
-                "poulet",
-                "roger"
-            ]
-        },
-        "51": {
-            "name": "froufrou",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "3",
-            "score": 3.0,
-            "opponents": [
-                "droudbal",
-                "zeubi",
-                "roger",
-                "poulet"
-            ]
-        },
-        "52": {
-            "name": "poulet",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+        "10": {
+            "name": "z",
+            "firstname": "z",
+            "date_of_birth": "z",
+            "gender": "z",
             "ranking": "2",
             "score": 1.0,
             "opponents": [
-                "brout",
-                "roger",
-                "carlito",
-                "froufrou"
+                "x",
+                "a"
             ]
         },
-        "53": {
-            "name": "droudbal",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "7",
-            "score": 3.0,
+        "11": {
+            "name": "q",
+            "firstname": "q",
+            "date_of_birth": "q",
+            "gender": "q",
+            "ranking": "3",
+            "score": 2.0,
             "opponents": [
-                "froufrou",
-                "salobe",
-                "zeubi",
-                "brout"
+                "e",
+                "w"
             ]
         },
-        "54": {
-            "name": "brout",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
-            "ranking": "6",
-            "score": 1.0,
-            "opponents": [
-                "poulet",
-                "carlito",
-                "salobe",
-                "droudbal"
-            ]
-        },
-        "55": {
-            "name": "zeubi",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+        "12": {
+            "name": "w",
+            "firstname": "w",
+            "date_of_birth": "",
+            "gender": "w",
             "ranking": "5",
-            "score": 1.0,
+            "score": 0.0,
             "opponents": [
-                "roger",
-                "froufrou",
-                "droudbal",
-                "salobe"
+                "a",
+                "q"
             ]
         },
-        "56": {
-            "name": "salobe",
-            "firstname": "a",
-            "date_of_birth": "a",
-            "gender": "a",
+        "13": {
+            "name": "s",
+            "firstname": "s",
+            "date_of_birth": "s",
+            "gender": "s",
+            "ranking": "4",
+            "score": 2.0,
+            "opponents": [
+                "d",
+                "x"
+            ]
+        },
+        "14": {
+            "name": "x",
+            "firstname": "x",
+            "date_of_birth": "x",
+            "gender": "x",
+            "ranking": "6",
+            "score": 0.0,
+            "opponents": [
+                "z",
+                "s"
+            ]
+        },
+        "15": {
+            "name": "e",
+            "firstname": "e",
+            "date_of_birth": "e",
+            "gender": "e",
+            "ranking": "7",
+            "score": 1.0,
+            "opponents": [
+                "q",
+                "d"
+            ]
+        },
+        "16": {
+            "name": "d",
+            "firstname": "d",
+            "date_of_birth": "d",
+            "gender": "d",
             "ranking": "8",
             "score": 0.0,
             "opponents": [
-                "carlito",
-                "droudbal",
-                "brout",
-                "zeubi"
+                "s",
+                "e"
             ]
         }
     },
@@ -223,660 +249,22 @@
             "place": "new york",
             "date": "new york",
             "players": [
-                "arthur",
-                "robert",
-                "victor",
-                "rene",
-                "eliott",
-                "colin",
-                "fred",
-                "stef"
+                "a",
+                "z",
+                "q",
+                "s",
+                "w",
+                "x",
+                "e",
+                "d"
             ],
             "players_i": [],
             "rounds": [
                 1,
-                2,
-                4
+                2
             ],
             "number_of_tours": 4,
             "number_of_players": 8
-        },
-        "2": {
-            "name": "zgeg tour",
-            "place": "paris",
-            "date": "paris",
-            "players": [
-                "roger",
-                "poulet",
-                "froufrou",
-                "carlito",
-                "zeubi",
-                "brout",
-                "droudbal",
-                "salobe"
-            ],
-            "players_i": [],
-            "rounds": [
-                1,
-                2,
-                3,
-                4
-            ],
-            "number_of_tours": 4,
-            "number_of_players": 8
-        }
-    },
-    "rounds": {
-        "1": {
-            "name": 1,
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                [
-                    [
-                        "arthur",
-                        1.0
-                    ],
-                    [
-                        "eliott",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "robert",
-                        1.0
-                    ],
-                    [
-                        "colin",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "victor",
-                        1.0
-                    ],
-                    [
-                        "fred",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "rene",
-                        1.0
-                    ],
-                    [
-                        "stef",
-                        0.0
-                    ]
-                ]
-            ]
-        },
-        "2": {
-            "name": 2,
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                [
-                    [
-                        "arthur",
-                        1.0
-                    ],
-                    [
-                        "robert",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "victor",
-                        1.0
-                    ],
-                    [
-                        "rene",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "eliott",
-                        1.0
-                    ],
-                    [
-                        "colin",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "fred",
-                        1.0
-                    ],
-                    [
-                        "stef",
-                        0.0
-                    ]
-                ]
-            ]
-        },
-        "3": {
-            "name": 3,
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                [
-                    [
-                        "arthur",
-                        1.0
-                    ],
-                    [
-                        "victor",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "robert",
-                        1.0
-                    ],
-                    [
-                        "rene",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "eliott",
-                        1.0
-                    ],
-                    [
-                        "fred",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "colin",
-                        1.0
-                    ],
-                    [
-                        "stef",
-                        0.0
-                    ]
-                ]
-            ]
-        },
-        "4": {
-            "name": 1,
-            "date": "0",
-            "time": "1",
-            "match_list": [
-                [
-                    [
-                        "arthur",
-                        1.0
-                    ],
-                    [
-                        "eliott",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "robert",
-                        1.0
-                    ],
-                    [
-                        "colin",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "victor",
-                        1.0
-                    ],
-                    [
-                        "fred",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "rene",
-                        1.0
-                    ],
-                    [
-                        "stef",
-                        0.0
-                    ]
-                ]
-            ]
-        },
-        "5": {
-            "name": 4,
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                [
-                    [
-                        "arthur",
-                        1.0
-                    ],
-                    [
-                        "victor",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "robert",
-                        1.0
-                    ],
-                    [
-                        "rene",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "eliott",
-                        1.0
-                    ],
-                    [
-                        "fred",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "colin",
-                        1.0
-                    ],
-                    [
-                        "stef",
-                        0.0
-                    ]
-                ]
-            ]
-        },
-        "6": {
-            "name": 4,
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                [
-                    [
-                        "arthur",
-                        1.0
-                    ],
-                    [
-                        "victor",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "robert",
-                        1.0
-                    ],
-                    [
-                        "rene",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "eliott",
-                        1.0
-                    ],
-                    [
-                        "fred",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "colin",
-                        1.0
-                    ],
-                    [
-                        "stef",
-                        0.0
-                    ]
-                ]
-            ]
-        },
-        "7": {
-            "name": 1,
-            "date": "a",
-            "time": "a",
-            "match_list": [
-                [
-                    [
-                        "roger",
-                        1.0
-                    ],
-                    [
-                        "zeubi",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "poulet",
-                        1.0
-                    ],
-                    [
-                        "brout",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "froufrou",
-                        1.0
-                    ],
-                    [
-                        "droudbal",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "carlito",
-                        1.0
-                    ],
-                    [
-                        "salobe",
-                        0.0
-                    ]
-                ]
-            ]
-        },
-        "8": {
-            "name": 2,
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                [
-                    [
-                        "roger",
-                        1.0
-                    ],
-                    [
-                        "poulet",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "froufrou",
-                        1.0
-                    ],
-                    [
-                        "zeubi",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "carlito",
-                        1.0
-                    ],
-                    [
-                        "brout",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "droudbal",
-                        1.0
-                    ],
-                    [
-                        "salobe",
-                        0.0
-                    ]
-                ]
-            ]
-        },
-        "9": {
-            "name": 3,
-            "date": "11\b",
-            "time": "0",
-            "match_list": [
-                [
-                    [
-                        "roger",
-                        1.0
-                    ],
-                    [
-                        "froufrou",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "carlito",
-                        1.0
-                    ],
-                    [
-                        "poulet",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "droudbal",
-                        1.0
-                    ],
-                    [
-                        "zeubi",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "brout",
-                        1.0
-                    ],
-                    [
-                        "salobe",
-                        0.0
-                    ]
-                ]
-            ]
-        },
-        "10": {
-            "name": 4,
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                [
-                    [
-                        "roger",
-                        1.0
-                    ],
-                    [
-                        "carlito",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "froufrou",
-                        1.0
-                    ],
-                    [
-                        "poulet",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "droudbal",
-                        1.0
-                    ],
-                    [
-                        "brout",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "zeubi",
-                        1.0
-                    ],
-                    [
-                        "salobe",
-                        0.0
-                    ]
-                ]
-            ]
-        },
-        "11": {
-            "name": 1,
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                [
-                    [
-                        "roger",
-                        1.0
-                    ],
-                    [
-                        "zeubi",
-                        1.0
-                    ]
-                ],
-                [
-                    [
-                        "poulet",
-                        1.0
-                    ],
-                    [
-                        "brout",
-                        1.0
-                    ]
-                ],
-                [
-                    [
-                        "froufrou",
-                        1.0
-                    ],
-                    [
-                        "droudbal",
-                        1.0
-                    ]
-                ],
-                [
-                    [
-                        "carlito",
-                        11.0
-                    ],
-                    [
-                        "salobe",
-                        1.0
-                    ]
-                ]
-            ]
-        },
-        "12": {
-            "name": 1,
-            "date": "1",
-            "time": "1",
-            "match_list": [
-                [
-                    [
-                        "mamadou",
-                        1.0
-                    ],
-                    [
-                        "zboub",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "bachir",
-                        1.0
-                    ],
-                    [
-                        "ramza",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "reda",
-                        1.0
-                    ],
-                    [
-                        "zizou",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "anis",
-                        1.0
-                    ],
-                    [
-                        "mahdi",
-                        0.0
-                    ]
-                ]
-            ]
-        },
-        "13": {
-            "name": 1,
-            "date": "0",
-            "time": "1",
-            "match_list": [
-                [
-                    [
-                        "mamadou",
-                        0.0
-                    ],
-                    [
-                        "zboub",
-                        1.0
-                    ]
-                ],
-                [
-                    [
-                        "bachir",
-                        0.0
-                    ],
-                    [
-                        "ramza",
-                        1.0
-                    ]
-                ],
-                [
-                    [
-                        "reda",
-                        0.0
-                    ],
-                    [
-                        "zizou",
-                        1.0
-                    ]
-                ],
-                [
-                    [
-                        "anis",
-                        0.0
-                    ],
-                    [
-                        "mahdi",
-                        1.0
-                    ]
-                ]
-            ]
         }
     }
 }

@@ -32,27 +32,27 @@ class Report:
         all_players = players_table.all()
         tournament_table = db.table('tournaments')
         all_tournament = tournament_table.all()
-        index = Views.indice_of_tournament()
-        # use index to choose the right dico
-        tournament = all_tournament[int(index)]
+        user_answer = Views.which_name_tournament()
         players = []
-        for player in tournament['players']:
-            for play in all_players:
-                if str(player) == str(play['name']):
-                    players.append(play)
+        for tournament in all_tournament:
+            if user_answer == tournament['name']:
+                for player in tournament['players']:
+                    for play in all_players:
+                        if player == play['name']:
+                            players.append(play)
 
         user_answer = Views.sorted_report()
         if user_answer == 1:
-            sorted_actors = sorted(players, key=itemgetter('name'), )
-            for actor in sorted_actors:
-                print('name: ' + str(actor['name']) + ' Firstname: ' +
-                      str(actor['firstname']) + ' ranking: ' + str(actor['ranking']))
+            sorted_players = sorted(players, key=itemgetter('name'))
+            for player in sorted_players:
+                print('name: ' + str(player['name']) + ' Firstname: ' +
+                      str(player['firstname']) + ' ranking: ' + str(player['ranking']))
 
         elif user_answer == 2:
-            sorted_actors = sorted(players, key=itemgetter('ranking'), )
-            for actor in sorted_actors:
-                print('name: ' + str(actor['name']) + ' Firstname: ' +
-                      str(actor['firstname']) + ' ranking: ' + str(actor['ranking']))
+            sorted_players = sorted(players, key=itemgetter('ranking'))
+            for player in sorted_players:
+                print('name: ' + str(player['name']) + ' Firstname: ' +
+                      str(player['firstname']) + ' ranking: ' + str(player['ranking']))
 
     def report_all_tournaments(self):
         tournaments_table = db.table('tournaments')
@@ -62,12 +62,24 @@ class Report:
             print('name: ' + str(tournament['name']) + ', place: ' +
                   str(tournament['place']) + ', date: ' + str(tournament['date']))
 
-    def report_all_rounds(self):
+    def report_rounds_tournament(self):
         rounds_table = db.table('rounds')
-        rounds = rounds_table.all()
-        for round in rounds:
-            print('-------------')
-            print('name: ' + str(round['name']), 'matchs: ' + str(round['match_list']))
+        all_rounds = rounds_table.all()
+        user_answer = Views.which_name_tournament()
+        for round in all_rounds:
+            if round['tournament_name'] == user_answer:
+                print('-------------')
+                print('name: ' + str(round['name']), 'date: ' + str(round['date']), 'time: ' + str(round['time']))
 
-    def report_all_match(self):
-        pass
+    def report_matchs_tournament(self):
+        rounds_table = db.table('rounds')
+        all_rounds = rounds_table.all()
+        user_answer = Views.which_name_tournament()
+        for round in all_rounds:
+            print('-----------------')
+            print('Round: ')
+            print(round['name'])
+            if round['tournament_name'] == user_answer:
+                match_list = round['match_list']
+                for match in match_list:
+                    print(match[0][0] + ' against ' + match[1][0])

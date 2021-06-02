@@ -13,8 +13,8 @@ class Controller:
         self.tournament = tournament
 
     def menu(self):
-        '''Main menu of the program, makes the link between 
-        the views and the models to allow the user access 
+        '''Main menu of the program, makes the link between
+        the views and the models to allow the user access
         every fonctionality of the application'''
         # create or load tour
         if self.tournament == "":
@@ -93,10 +93,11 @@ class Controller:
             self.menu()
 
     def generate_rounds(self, list_of_players):
-        '''Makes the link between the round model and the views 
+        '''Makes the link between the round model and the views
         in order to generate the rounds and pair the players'''
         # create the round
         round = Views.create_round()
+        round.tournament_name = self.tournament.name
         # initialize match list because python keep in memory the last match list in the instance round
         round.match_list = []
         # generate the round and return the list of matchs
@@ -152,15 +153,12 @@ class Controller:
         elif user_answer == 3:
             report.report_all_tournaments()
         elif user_answer == 4:
-            report.report_all_rounds()
+            report.report_rounds_tournament()
         elif user_answer == 5:
-            report.report_all_match()
+            report.report_matchs_tournament()
 
 
-# rapports
+# le pb c'est que opponent est toujours dans opponent.name
+
+# Modif dans rapport chercher le tour avec le nom et pas l'indice
 # oral
-
-# quand on fait creer tournoit et direct les round, sauf pour le round 1 qui marche,
-# les autres rounds retournent l'erreur variable referenced before assignments dans la methode round de class Round
-
-# truc du bareexcept ----> pas capté
