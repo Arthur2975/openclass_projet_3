@@ -128,8 +128,8 @@ class Controller:
         round.save()
         # add opponent in each player instance
         for match in list_of_matchs:
-            Player.add_opponents(match[0], match[1])
-            Player.add_opponents(match[1], match[0])
+            match[0].add_opponents(match[1])
+            match[1].add_opponents(match[0])
         # update players in list of instances in tournament
         list_play_instances = []
         for match in list_of_matchs:
@@ -158,7 +158,8 @@ class Controller:
             report.report_matchs_tournament()
 
 
-# le pb c'est que opponent est toujours dans opponent.name
-
-# Modif dans rapport chercher le tour avec le nom et pas l'indice
+# le pb c'est que opponent est toujours dans opponent.name, dans generate round --> first round ca doit ajouter tous les opponents à chaque instance
+# line 130 dans controler ca rajoute a chaque player toute la liste d'opponents
 # oral
+
+# bloquer la user answer du numeor de tournament a loader

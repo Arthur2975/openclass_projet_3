@@ -7,7 +7,7 @@ db = TinyDB('chess.json')
 class Player:
     '''Class defining a player and its attributes'''
 
-    def __init__(self, name, firstname, date_of_birth, gender, ranking, score=0, opponents=[]):
+    def __init__(self, name, firstname, date_of_birth, gender, ranking, score=0, opponents_name=[]):
         '''This is the class constructor'''
 
         self.name = name
@@ -16,7 +16,7 @@ class Player:
         self.gender = gender
         self.ranking = ranking
         self.score = score
-        self.opponents_name = opponents
+        self.opponents_name = opponents_name
 
     def save(self):
         '''This method serialize an instance and save it in the db'''
