@@ -1,6 +1,6 @@
 # openclass_projet_4
 
-![myimage-alt-tag](images/screenshot.png)
+![Chessgame](Images/screenshot.png)
 
 ## Program CHESS GAME:
 
