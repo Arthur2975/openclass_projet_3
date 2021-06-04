@@ -156,7 +156,3 @@ class Controller:
             report.report_rounds_tournament()
         elif user_answer == 5:
             report.report_matchs_tournament()
-
-
-# oral
-# readme
