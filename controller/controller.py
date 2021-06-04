@@ -160,4 +160,3 @@ class Controller:
 
 # oral
 # readme
-# doctstrings
