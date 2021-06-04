@@ -34,29 +34,39 @@ class Player:
         for player in list_of_players:
             deserialized_list.append(Player(
                 player['name'], player['firstname'], player['date_of_birth'],
-                player['gender'], player['ranking'], player['score'], player['opponents']))
+                player['gender'], player['ranking'], player['score'], player['opponents'], player['opponents_name']))
         return deserialized_list
 
     def get_score(self):
+        '''To make appear the score of a player'''
         return self.score
 
     def set_ranking(self, ranking):
+        '''method to change the ranking of a player'''
         self.ranking = ranking
 
     def set_score(self, score):
+        '''method to change the score of a player'''
         self.score += float(score)
 
     def add_opponents(self, opponent):
+        '''method to add an opponents to the player's list'''
         self.opponents_name.append(str(opponent.name))
 
     def get_opponents(self):
+        '''return the list of a payer's passed opponents'''
         return self.opponents_name
 
     def check_max_player(list_of_players):
+        '''method to verify if the number of players
+        is a adequation with the tournaments attribute
+        about the number of players needed'''
         if len(list_of_players) == 8:
             return True
 
     def load_player(name):
+        '''this method loads an instance of player from is name
+        chosing the right one in the db'''
         player_table = db.table('players')
         players = player_table.all()
         for player in players:

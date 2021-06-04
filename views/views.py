@@ -7,9 +7,10 @@ db = TinyDB('chess.json')
 
 
 class Views:
-    '''docstring'''
+    '''defines the views and methods'''
 
     def print_create_or_load():
+        '''propose to create or load an existing tournament'''
         user_answer = 0
         while user_answer not in (1, 2):
             print('Do you want to create or load a tournament?')
@@ -22,13 +23,25 @@ class Views:
                 user_answer = 0
 
     def propose_to_load_tour():
-        tournament = Tournament.load_tournament(input('tournament number: '))
-        print('---------------------------------------')
-        print('Tournament loaded')
-        print('---------------------------------------')
-        return tournament
+        '''propose the user to enter the name of the tournament he wants to load
+        and loads the proper tournament from the db'''
+        while True:
+            tournament_table = db.table('tournaments')
+            all_tournaments = tournament_table.all()
+            tour_name = input('Tournament name: ')
+            for tournament in all_tournaments:
+                if tournament['name'] == tour_name:
+                    user_answer = Tournament.load_tournament(tournament)
+                    print('---------------------------------------')
+                    print('Tournament loaded')
+                    print('---------------------------------------')
+                    return user_answer
+                else:
+                    print('-------------')
+                    print('wrong entries')
 
     def print_main_menu():
+        '''main menu of the program'''
         user_answer = 0
         while user_answer not in (1, 2, 3, 9):
             print('----')
@@ -45,23 +58,30 @@ class Views:
                 user_answer = 0
 
     def create_new_tournament():
+        '''allows the use to create a new tournament'''
         tournament = Tournament(name=input('name: '), place=input('place: '), date=input('date: '))
         return tournament
 
     def create_new_player():
+        '''allows the user to create a new player'''
         player = Player(name=input('name: '), firstname=input('firstname: '), date_of_birth=input(
-            'date_of_birth: '), gender=input('gender: '), ranking=input('ranking: '))
+            'date_of_birth: '), gender=input('gender: '), ranking=input('ranking: '), opponents_name=[])
         return player
 
     def not_enough_players():
+        '''print an alert when the user wants to make a match
+        without the proper amount of players'''
         print('------------------------------------')
         print('Not enough players to start a round')
 
     def players_full():
+        '''prints an alert when the user wants to add
+        too many players'''
         print('------------------------------')
         print('Too many players for this tournament')
 
     def reports():
+        '''reports menu'''
         print('--------------------------')
         print('Press 1 to view all actors')
         print('Press 2 to view all players')
@@ -73,6 +93,7 @@ class Views:
         return int(user_answer)
 
     def print_final_scores(list_of_players):
+        '''print the final score of each player'''
         print('Tournament is over!')
         input('press enter to visualize tournament results')
         print('scores:')
@@ -80,11 +101,13 @@ class Views:
             print(player.name + ': {}'.format(player.score))
 
     def show_match(list_of_match):
+        '''print the matchs from a list of matchs'''
         for match in list_of_match:
             print('------------------------------------')
             print(match[0].name + ' against ' + match[1].name)
 
     def propose_to_enter_scores(player_name):
+        '''let the user enter a match's scores'''
         user_answer = 3
         while user_answer not in (0, 0.5, 1):
             print('------------------------------------')
@@ -96,13 +119,8 @@ class Views:
             except ValueError:
                 user_answer = 3
 
-    def propose_to_erase():
-        print('Press 1: To erase the tournament infos')
-        print('Press 2: To erase the players infos')
-        user_answer = input('Enter your choice')
-        return user_answer
-
     def exit():
+        '''exit menu, propose to save before'''
         print('Do you want to save before you quit?: ')
         print('Press 1: Yes')
         print('Press 2: No')
@@ -110,9 +128,11 @@ class Views:
         return int(user_answer)
 
     def tournament_saved():
+        '''print that the tournament was saved'''
         print('tournament saved, good bye')
 
     def create_round():
+        '''let the user create an instance of round'''
         while True:
             try:
                 name = int(input('Enter the round number (1, 2, 3, 4): '))
@@ -127,13 +147,16 @@ class Views:
         return round
 
     def goodbye():
+        '''print goodby when exit'''
         print('Good bye')
 
     def all_rounds_played():
+        '''print an alert when the match are all paired'''
         print('__________________________')
         print('all rounds allready played')
 
     def sorted_report():
+        '''propose to sort by name or by score'''
         user_answer = 0
         while user_answer not in (1, 2):
             print('Sorted by name, press 1: ')
@@ -145,29 +168,16 @@ class Views:
             except ValueError:
                 user_answer = 0
 
-    def indice_of_tournament():
-        while True:
-            user_answer = input('what is the indice of the tournament for which you wanna see the players?')
-            tournament_table = db.table('tournaments')
-            all_tournaments = tournament_table.all()
-            try:
-                all_tournaments[int(user_answer)]
-                return user_answer
-            except ValueError:
-                print('wrong indice, please try again')
-                user_answer = False
-
     def which_name_tournament():
+        '''ask the user the name of the tournament he wants to load or analyse'''
         while True:
             print('Whats the name of the tournament you want to see the infos?: ')
             user_answer = input('Enter your choice here: ')
             tournament_table = db.table('tournaments')
             all_tournaments = tournament_table.all()
-
-            try:
-                for tournament in all_tournaments:
-                    if tournament['name'] == str(user_answer):
-                        return user_answer
-            except ValueError:
-                print('wrong entries')
-                return False
+            for tournament in all_tournaments:
+                if tournament['name'] == str(user_answer):
+                    return user_answer
+                else:
+                    print('-------------')
+                    print('wrong entries')

@@ -46,10 +46,58 @@
                     ]
                 ]
             ],
-            "tournament_name": "a"
+            "tournament_name": "chess tour"
         },
         "2": {
-            "name": 1,
+            "name": 2,
+            "date": "1",
+            "time": "1",
+            "match_list": [
+                [
+                    [
+                        "a",
+                        1.0
+                    ],
+                    [
+                        "q",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "w",
+                        1.0
+                    ],
+                    [
+                        "s",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "z",
+                        1.0
+                    ],
+                    [
+                        "x",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "e",
+                        1.0
+                    ],
+                    [
+                        "d",
+                        0.0
+                    ]
+                ]
+            ],
+            "tournament_name": "chess tour"
+        },
+        "3": {
+            "name": 3,
             "date": "1",
             "time": "1",
             "match_list": [
@@ -69,23 +117,23 @@
                         1.0
                     ],
                     [
-                        "x",
+                        "q",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "q",
+                        "e",
                         1.0
                     ],
                     [
-                        "e",
+                        "s",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "s",
+                        "x",
                         1.0
                     ],
                     [
@@ -96,10 +144,10 @@
             ],
             "tournament_name": "chess tour"
         },
-        "3": {
-            "name": 2,
-            "date": "2",
-            "time": "2",
+        "4": {
+            "name": 4,
+            "date": "1",
+            "time": "1",
             "match_list": [
                 [
                     [
@@ -113,17 +161,17 @@
                 ],
                 [
                     [
-                        "q",
+                        "w",
                         1.0
                     ],
                     [
-                        "w",
+                        "q",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "s",
+                        "e",
                         1.0
                     ],
                     [
@@ -133,7 +181,7 @@
                 ],
                 [
                     [
-                        "e",
+                        "s",
                         1.0
                     ],
                     [
@@ -146,114 +194,130 @@
         }
     },
     "players": {
-        "9": {
+        "1": {
             "name": "a",
-            "firstname": "aa",
+            "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
             "ranking": "1",
-            "score": 2.0,
+            "score": 4.0,
             "opponents": [
+                "s",
+                "q",
                 "w",
                 "z"
             ]
         },
-        "10": {
+        "2": {
             "name": "z",
             "firstname": "z",
             "date_of_birth": "z",
             "gender": "z",
-            "ranking": "2",
-            "score": 1.0,
+            "ranking": "4",
+            "score": 3.0,
             "opponents": [
+                "d",
                 "x",
+                "q",
                 "a"
             ]
         },
-        "11": {
-            "name": "q",
-            "firstname": "q",
-            "date_of_birth": "q",
-            "gender": "q",
-            "ranking": "3",
-            "score": 2.0,
-            "opponents": [
-                "e",
-                "w"
-            ]
-        },
-        "12": {
+        "3": {
             "name": "w",
             "firstname": "w",
-            "date_of_birth": "",
+            "date_of_birth": "w",
             "gender": "w",
-            "ranking": "5",
-            "score": 0.0,
+            "ranking": "3",
+            "score": 3.0,
             "opponents": [
+                "e",
+                "s",
                 "a",
                 "q"
             ]
         },
-        "13": {
-            "name": "s",
-            "firstname": "s",
-            "date_of_birth": "s",
-            "gender": "s",
-            "ranking": "4",
-            "score": 2.0,
+        "4": {
+            "name": "q",
+            "firstname": "q",
+            "date_of_birth": "q",
+            "gender": "q",
+            "ranking": "2",
+            "score": 1.0,
             "opponents": [
-                "d",
-                "x"
-            ]
-        },
-        "14": {
-            "name": "x",
-            "firstname": "x",
-            "date_of_birth": "x",
-            "gender": "x",
-            "ranking": "6",
-            "score": 0.0,
-            "opponents": [
+                "x",
+                "a",
                 "z",
-                "s"
+                "w"
             ]
         },
-        "15": {
+        "5": {
             "name": "e",
             "firstname": "e",
             "date_of_birth": "e",
             "gender": "e",
             "ranking": "7",
+            "score": 3.0,
+            "opponents": [
+                "w",
+                "d",
+                "s",
+                "x"
+            ]
+        },
+        "6": {
+            "name": "x",
+            "firstname": "x",
+            "date_of_birth": "x",
+            "gender": "x",
+            "ranking": "6",
             "score": 1.0,
             "opponents": [
                 "q",
+                "z",
+                "d",
+                "e"
+            ]
+        },
+        "7": {
+            "name": "s",
+            "firstname": "s",
+            "date_of_birth": "s",
+            "gender": "s",
+            "ranking": "5",
+            "score": 1.0,
+            "opponents": [
+                "a",
+                "w",
+                "e",
                 "d"
             ]
         },
-        "16": {
+        "8": {
             "name": "d",
             "firstname": "d",
             "date_of_birth": "d",
-            "gender": "d",
+            "gender": "",
             "ranking": "8",
             "score": 0.0,
             "opponents": [
-                "s",
-                "e"
+                "z",
+                "e",
+                "x",
+                "s"
             ]
         }
     },
     "tournaments": {
         "1": {
             "name": "chess tour",
-            "place": "new york",
-            "date": "new york",
+            "place": "nyc",
+            "date": "12",
             "players": [
                 "a",
-                "z",
                 "q",
-                "s",
                 "w",
+                "z",
+                "s",
                 "x",
                 "e",
                 "d"
@@ -261,7 +325,9 @@
             "players_i": [],
             "rounds": [
                 1,
-                2
+                2,
+                3,
+                4
             ],
             "number_of_tours": 4,
             "number_of_players": 8

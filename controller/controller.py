@@ -143,7 +143,7 @@ class Controller:
             Views.print_final_scores(list_of_players)
 
     def generate_reports(self):
-        '''docstring'''
+        '''Menu of the reports'''
         report = Report()
         user_answer = Views.reports()
         if user_answer == 1:
@@ -158,8 +158,6 @@ class Controller:
             report.report_matchs_tournament()
 
 
-# le pb c'est que opponent est toujours dans opponent.name, dans generate round --> first round ca doit ajouter tous les opponents à chaque instance
-# line 130 dans controler ca rajoute a chaque player toute la liste d'opponents
 # oral
-
-# bloquer la user answer du numeor de tournament a loader
+# readme
+# doctstrings

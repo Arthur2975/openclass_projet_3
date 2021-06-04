@@ -4,11 +4,11 @@ db = TinyDB('chess.json')
 
 
 class Tournament:
+    '''Defines a tournament and its attributes'''
 
     def __init__(self, name, place, date,
                  number_of_tours=4, players=[], players_i=[], number_of_players=8, rounds=[],
                  time_control='bullet', comment=None):
-        '''Class constructor'''
 
         self.name = name
         self.place = place
@@ -22,6 +22,7 @@ class Tournament:
         self.comment = comment
 
     def set_comment(self, comment):
+        '''allow the tournament organizer to set a comment'''
         self.comment = comment
 
     def save(self):
@@ -35,10 +36,8 @@ class Tournament:
         tournaments_table = db.table('tournaments')
         tournaments_table.insert(serialized_tournament)
 
-    def load_tournament(tournament_number):
-        tournament_table = db.table('tournaments')
-        tournament_dict = tournament_table.all()
-        tournament = tournament_dict[int(tournament_number)]
+    def load_tournament(tournament):
+        '''to load an instance of tournament from the db'''
         tour = Tournament(name=tournament['name'], place=tournament['place'],
                           date=tournament['place'], players=tournament['players'],
                           players_i=tournament['players_i'], rounds=tournament['rounds'])

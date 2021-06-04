@@ -5,6 +5,8 @@ db = TinyDB('chess.json')
 
 
 class Round:
+    '''This class defines a round and its attributes'''
+
     def __init__(self, name, date, time, tournament_name='tournament', match_list=[]):
         self.name = name
         self.date = date
@@ -13,13 +15,16 @@ class Round:
         self.match_list = match_list
 
     def add_match(self, match):
+        '''adds match to a match list'''
         self.match_list.append(match)
 
     def sort_list(list):
+        '''sorts a list of players by their scores'''
         return sorted(list, key=operator.attrgetter("score"), reverse=True)
 
     def first_rnd(self, list_of_players):
-        '''docstring'''
+        '''returns a list of match paired by ranking,
+        according to the swiss algorithm'''
 
         sorted_players = sorted(
             list_of_players, key=lambda player: player.ranking)
@@ -38,7 +43,8 @@ class Round:
         return matchs_first_round
 
     def round(self, list_player):
-        '''docstring'''
+        '''Returns a list of match paired by
+        their previous scores in the tournament'''
 
         # sort player by scores
         sorted_players = Round.sort_list(list_player)
@@ -81,10 +87,8 @@ class Round:
         return match_list
 
     def save(self):
+        '''save a round in the db'''
         serialized_round = {'name': self.name, 'date': self.date,
                             'time': self.time, 'match_list': self.match_list, 'tournament_name': self.tournament_name}
         round_table = db.table('rounds')
         round_table.insert(serialized_round)
-
-    def load(self):
-        pass

@@ -6,12 +6,13 @@ db = TinyDB('chess.json')
 
 
 class Report:
-    '''Docstring'''
+    '''Class defining the different reports'''
 
     def __init__(self):
         pass
 
     def report_all_actors(self):
+        '''reports all actors in the db'''
         actors_table = db.table('players')
         all_actors = actors_table.all()
         user_answer = Views.sorted_report()
@@ -28,6 +29,7 @@ class Report:
                       str(actor['firstname']) + ' ranking: ' + str(actor['ranking']))
 
     def report_all_players(self):
+        '''reports all players in a tournament'''
         players_table = db.table('players')
         all_players = players_table.all()
         tournament_table = db.table('tournaments')
@@ -55,6 +57,7 @@ class Report:
                       str(player['firstname']) + ' ranking: ' + str(player['ranking']))
 
     def report_all_tournaments(self):
+        '''reports all tournament saved in the db'''
         tournaments_table = db.table('tournaments')
         all_tournaments = tournaments_table.all()
         for tournament in all_tournaments:
@@ -63,6 +66,7 @@ class Report:
                   str(tournament['place']) + ', date: ' + str(tournament['date']))
 
     def report_rounds_tournament(self):
+        '''reports all rounds in a certain tournamnent'''
         rounds_table = db.table('rounds')
         all_rounds = rounds_table.all()
         user_answer = Views.which_name_tournament()
@@ -72,6 +76,7 @@ class Report:
                 print('name: ' + str(round['name']), 'date: ' + str(round['date']), 'time: ' + str(round['time']))
 
     def report_matchs_tournament(self):
+        '''reports all matchs in a certain tournament'''
         rounds_table = db.table('rounds')
         all_rounds = rounds_table.all()
         user_answer = Views.which_name_tournament()
