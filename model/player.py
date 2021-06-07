@@ -74,5 +74,5 @@ class Player:
                 target = Player(name=player['name'], firstname=player['firstname'],
                                 date_of_birth=player['date_of_birth'],
                                 gender=player['gender'], ranking=player['ranking'],
-                                score=player['score'], opponents=player['opponents'])
+                                score=player['score'], opponents_name=player['opponents'])
                 return target

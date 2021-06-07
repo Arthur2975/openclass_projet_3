@@ -7,6 +7,10 @@
 This program is used for the organization of chess tournaments.
 The user is invited to create a new tournament and its players or to load existing ones. Then the program generates the matchs and rounds according to the swiss algorithm. After each round, the user enters the scores. Finally the program organizes the results and generates reports on the tournaments statistics.
 
+## Librairie
+
+pip install -r requirements.txt
+
 ## Start the program
 
 lauch the program in the terminal with the command:

@@ -2,46 +2,46 @@
     "rounds": {
         "1": {
             "name": 1,
-            "date": "1",
-            "time": "1",
+            "date": "12.12.2021",
+            "time": "12h",
             "match_list": [
                 [
                     [
-                        "a",
+                        "arthur",
                         1.0
                     ],
                     [
-                        "s",
+                        "clara",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "q",
+                        "robert",
+                        0.5
+                    ],
+                    [
+                        "fred",
+                        0.5
+                    ]
+                ],
+                [
+                    [
+                        "jeje",
                         1.0
                     ],
                     [
-                        "x",
+                        "herve",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "w",
+                        "daniel",
                         1.0
                     ],
                     [
-                        "e",
-                        0.0
-                    ]
-                ],
-                [
-                    [
-                        "z",
-                        1.0
-                    ],
-                    [
-                        "d",
+                        "pol",
                         0.0
                     ]
                 ]
@@ -50,46 +50,46 @@
         },
         "2": {
             "name": 2,
-            "date": "1",
+            "date": "12",
             "time": "1",
             "match_list": [
                 [
                     [
-                        "a",
+                        "arthur",
                         1.0
                     ],
                     [
-                        "q",
+                        "robert",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "w",
+                        "jeje",
                         1.0
                     ],
                     [
-                        "s",
+                        "daniel",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "z",
+                        "fred",
                         1.0
                     ],
                     [
-                        "x",
+                        "clara",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "e",
+                        "herve",
                         1.0
                     ],
                     [
-                        "d",
+                        "pol",
                         0.0
                     ]
                 ]
@@ -103,41 +103,41 @@
             "match_list": [
                 [
                     [
-                        "a",
+                        "arthur",
                         1.0
                     ],
                     [
-                        "w",
+                        "jeje",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "z",
+                        "fred",
                         1.0
                     ],
                     [
-                        "q",
+                        "daniel",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "e",
+                        "herve",
                         1.0
                     ],
                     [
-                        "s",
+                        "robert",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "x",
+                        "clara",
                         1.0
                     ],
                     [
-                        "d",
+                        "pol",
                         0.0
                     ]
                 ]
@@ -151,27 +151,55 @@
             "match_list": [
                 [
                     [
-                        "a",
+                        "arthur",
                         1.0
                     ],
                     [
-                        "z",
+                        "fred",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "w",
+                        "jeje",
                         1.0
                     ],
                     [
-                        "q",
+                        "robert",
                         0.0
                     ]
                 ],
                 [
                     [
-                        "e",
+                        "herve",
+                        1.0
+                    ],
+                    [
+                        "daniel",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "herve",
+                        1.0
+                    ],
+                    [
+                        "daniel",
+                        0.0
+                    ]
+                ]
+            ],
+            "tournament_name": "chess tour"
+        },
+        "5": {
+            "name": 1,
+            "date": "12",
+            "time": "a",
+            "match_list": [
+                [
+                    [
+                        "robert",
                         1.0
                     ],
                     [
@@ -181,11 +209,175 @@
                 ],
                 [
                     [
-                        "s",
+                        "qlo",
                         1.0
                     ],
                     [
-                        "d",
+                        "yttt",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "dfd",
+                        1.0
+                    ],
+                    [
+                        "bvb",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "ere",
+                        1.0
+                    ],
+                    [
+                        "ddfd",
+                        0.0
+                    ]
+                ]
+            ],
+            "tournament_name": "chess tour"
+        },
+        "6": {
+            "name": 2,
+            "date": "a",
+            "time": "a",
+            "match_list": [
+                [
+                    [
+                        "robert",
+                        1.0
+                    ],
+                    [
+                        "qlo",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "dfd",
+                        1.0
+                    ],
+                    [
+                        "x",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "ere",
+                        1.0
+                    ],
+                    [
+                        "yttt",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "bvb",
+                        1.0
+                    ],
+                    [
+                        "ddfd",
+                        0.0
+                    ]
+                ]
+            ],
+            "tournament_name": "chess tour"
+        },
+        "7": {
+            "name": 3,
+            "date": "a",
+            "time": "a",
+            "match_list": [
+                [
+                    [
+                        "robert",
+                        1.0
+                    ],
+                    [
+                        "dfd",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "ere",
+                        0.5
+                    ],
+                    [
+                        "qlo",
+                        0.5
+                    ]
+                ],
+                [
+                    [
+                        "bvb",
+                        1.0
+                    ],
+                    [
+                        "x",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "yttt",
+                        1.0
+                    ],
+                    [
+                        "ddfd",
+                        0.0
+                    ]
+                ]
+            ],
+            "tournament_name": "chess tour"
+        },
+        "8": {
+            "name": 4,
+            "date": "a",
+            "time": "a",
+            "match_list": [
+                [
+                    [
+                        "robert",
+                        1.0
+                    ],
+                    [
+                        "ere",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "dfd",
+                        1.0
+                    ],
+                    [
+                        "qlo",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "bvb",
+                        1.0
+                    ],
+                    [
+                        "yttt",
+                        0.0
+                    ]
+                ],
+                [
+                    [
+                        "x",
+                        1.0
+                    ],
+                    [
+                        "ddfd",
                         0.0
                     ]
                 ]
@@ -194,133 +386,227 @@
         }
     },
     "players": {
-        "1": {
-            "name": "a",
+        "17": {
+            "name": "arthur",
             "firstname": "a",
             "date_of_birth": "a",
             "gender": "a",
             "ranking": "1",
             "score": 4.0,
             "opponents": [
-                "s",
-                "q",
-                "w",
-                "z"
+                "clara",
+                "robert",
+                "jeje",
+                "fred"
             ]
         },
-        "2": {
-            "name": "z",
-            "firstname": "z",
-            "date_of_birth": "z",
-            "gender": "z",
-            "ranking": "4",
-            "score": 3.0,
-            "opponents": [
-                "d",
-                "x",
-                "q",
-                "a"
-            ]
-        },
-        "3": {
-            "name": "w",
-            "firstname": "w",
-            "date_of_birth": "w",
-            "gender": "w",
+        "19": {
+            "name": "jeje",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
             "ranking": "3",
             "score": 3.0,
             "opponents": [
-                "e",
-                "s",
-                "a",
-                "q"
+                "herve",
+                "daniel",
+                "arthur",
+                "robert"
             ]
         },
-        "4": {
-            "name": "q",
-            "firstname": "q",
-            "date_of_birth": "q",
-            "gender": "q",
-            "ranking": "2",
+        "20": {
+            "name": "daniel",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "4",
             "score": 1.0,
             "opponents": [
-                "x",
-                "a",
-                "z",
-                "w"
+                "pol",
+                "jeje",
+                "fred",
+                "herve",
+                "herve"
             ]
         },
-        "5": {
-            "name": "e",
-            "firstname": "e",
-            "date_of_birth": "e",
-            "gender": "e",
+        "21": {
+            "name": "clara",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "5",
+            "score": 0.0,
+            "opponents": [
+                "arthur"
+            ]
+        },
+        "22": {
+            "name": "fred",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "6",
+            "score": 2.5,
+            "opponents": [
+                "robert",
+                "clara",
+                "daniel",
+                "arthur"
+            ]
+        },
+        "23": {
+            "name": "herve",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "7",
+            "score": 4.0,
+            "opponents": [
+                "jeje",
+                "pol",
+                "robert",
+                "daniel",
+                "daniel"
+            ]
+        },
+        "24": {
+            "name": "pol",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "8",
+            "score": 0.0,
+            "opponents": [
+                "daniel"
+            ]
+        },
+        "33": {
+            "name": "robert",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "1",
+            "score": 4.0,
+            "opponents": [
+                "x",
+                "qlo",
+                "dfd",
+                "ere"
+            ]
+        },
+        "34": {
+            "name": "ere",
+            "firstname": "&",
+            "date_of_birth": "&",
+            "gender": "&",
+            "ranking": "4",
+            "score": 2.5,
+            "opponents": [
+                "ddfd",
+                "yttt",
+                "qlo",
+                "robert"
+            ]
+        },
+        "35": {
+            "name": "dfd",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "3",
+            "score": 3.0,
+            "opponents": [
+                "bvb",
+                "x",
+                "robert",
+                "qlo"
+            ]
+        },
+        "36": {
+            "name": "qlo",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "2",
+            "score": 1.5,
+            "opponents": [
+                "yttt",
+                "robert",
+                "ere",
+                "dfd"
+            ]
+        },
+        "37": {
+            "name": "bvb",
+            "firstname": "ddf",
+            "date_of_birth": "df",
+            "gender": "z",
             "ranking": "7",
             "score": 3.0,
             "opponents": [
-                "w",
-                "d",
-                "s",
-                "x"
+                "dfd",
+                "ddfd",
+                "x",
+                "yttt"
             ]
         },
-        "6": {
+        "38": {
+            "name": "yttt",
+            "firstname": "",
+            "date_of_birth": "a",
+            "gender": "a",
+            "ranking": "6",
+            "score": 1.0,
+            "opponents": [
+                "qlo",
+                "ere",
+                "ddfd",
+                "bvb"
+            ]
+        },
+        "39": {
             "name": "x",
             "firstname": "x",
             "date_of_birth": "x",
             "gender": "x",
-            "ranking": "6",
-            "score": 1.0,
-            "opponents": [
-                "q",
-                "z",
-                "d",
-                "e"
-            ]
-        },
-        "7": {
-            "name": "s",
-            "firstname": "s",
-            "date_of_birth": "s",
-            "gender": "s",
             "ranking": "5",
             "score": 1.0,
             "opponents": [
-                "a",
-                "w",
-                "e",
-                "d"
+                "robert",
+                "dfd",
+                "bvb",
+                "ddfd"
             ]
         },
-        "8": {
-            "name": "d",
-            "firstname": "d",
-            "date_of_birth": "d",
-            "gender": "",
+        "40": {
+            "name": "ddfd",
+            "firstname": "a",
+            "date_of_birth": "a",
+            "gender": "a",
             "ranking": "8",
             "score": 0.0,
             "opponents": [
-                "z",
-                "e",
-                "x",
-                "s"
+                "ere",
+                "bvb",
+                "yttt",
+                "x"
             ]
         }
     },
     "tournaments": {
         "1": {
             "name": "chess tour",
-            "place": "nyc",
-            "date": "12",
+            "place": "new york",
+            "date": "new york",
             "players": [
-                "a",
-                "q",
-                "w",
-                "z",
-                "s",
+                "robert",
+                "qlo",
+                "dfd",
+                "ere",
                 "x",
-                "e",
-                "d"
+                "yttt",
+                "bvb",
+                "ddfd"
             ],
             "players_i": [],
             "rounds": [
