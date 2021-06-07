@@ -1,19 +1,11 @@
-astroid==2.5.2
-autopep8==1.5.6
-flake8==3.9.1
-flake8-html==0.4.1
-importlib-metadata==4.0.1
-isort==5.8.0
-Jinja2==3.0.0
-json5==0.9.5
-lazy-object-proxy==1.6.0
-MarkupSafe==2.0.0
-mccabe==0.6.1
-pycodestyle==2.7.0
-pyflakes==2.3.1
-Pygments==2.9.0
-pylint==2.7.4
-tinydb==4.4.0
-toml==0.10.2
-wrapt==1.12.1
-zipp==3.4.1
+Package     Version
+----------- -------
+autopep8    1.5.6
+flake8      3.9.1
+flake8-html 0.4.1
+isort       5.8.0
+json5       0.9.5
+pip         20.1.1
+pyflakes    2.3.1
+pylint      2.7.4
+tinydb      4.4.0
